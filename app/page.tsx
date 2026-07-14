@@ -84,9 +84,9 @@ const PROJECTS = [
   },
   {
     title: 'BookIT — Scheduling SaaS',
-    category: 'Full-Stack App',
-    tagline: 'Full booking platform built solo, concept to production.',
-    description: 'End-to-end appointment scheduling SaaS for service businesses. Includes real-time notifications, Stripe billing, Twilio SMS reminders, email verification, admin tools, and PWA support.',
+    category: 'Full-Stack App · Retired',
+    tagline: 'A full booking platform, built solo from concept to production — then retired.',
+    description: 'End-to-end appointment scheduling SaaS for service businesses: real-time notifications, Stripe billing, Twilio SMS reminders, email verification, admin tools, and PWA support. Retired in 2026 — the software shipped and worked; the business concept behind it did not, and it was wound down before public launch. It stays here as an engineering case study, not a product you can buy.',
     tech: ['Next.js 16', 'React 19', 'Supabase', 'Stripe', 'Twilio', 'Vercel'],
     metrics: [
       '3 role-based dashboards (admin, business, client)',
@@ -582,15 +582,15 @@ export default function ClearPathConsulting() {
             See it in action
           </h2>
           <p style={{ fontSize: '1rem', color: '#64748B', margin: '0 0 40px', maxWidth: 520, lineHeight: 1.7 }}>
-            Real software, running live. Watch how each product works from end to end.
+            Real software, built end to end. Some of it is live, some of it was retired — the walkthroughs are unchanged either way.
           </p>
 
           {/* Tabs */}
           <div style={{ display: 'flex', gap: 8, marginBottom: 28, flexWrap: 'wrap' }}>
             {[
               { id: 0, label: '🤖 AI Research Agent' },
-              { id: 1, label: '🏢 BookIT — Business' },
-              { id: 2, label: '👤 BookIT — Client' },
+              { id: 1, label: '🏢 BookIT — Business (retired)' },
+              { id: 2, label: '👤 BookIT — Client (retired)' },
               { id: 3, label: '🛠️ Enterprise Tools' },
               { id: 4, label: '🎬 ClearPath Overview' },
             ].map(tab => (
@@ -627,7 +627,7 @@ export default function ClearPathConsulting() {
           {activeDemo === 1 && (
             <div className="cp-fade">
               <p style={{ fontSize: '0.9rem', color: '#64748B', marginBottom: 20, lineHeight: 1.7, maxWidth: 620 }}>
-                A walkthrough of the BookIT business dashboard — setting up services, managing appointments, viewing client bookings, and handling real-time notifications.
+                <strong style={{ color: '#94A3B8' }}>Retired project.</strong> BookIT was wound down in 2026 — the build is finished, the business idea was abandoned. A walkthrough of the business dashboard: setting up services, managing appointments, viewing client bookings, and handling real-time notifications.
               </p>
               <div style={{ borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(99,102,241,0.25)', background: '#000', boxShadow: '0 0 60px rgba(99,102,241,0.1)' }}>
                 <video controls playsInline preload="metadata" style={{ width: '100%', display: 'block', maxHeight: 500 }}>
@@ -639,7 +639,7 @@ export default function ClearPathConsulting() {
           {activeDemo === 2 && (
             <div className="cp-fade">
               <p style={{ fontSize: '0.9rem', color: '#64748B', marginBottom: 20, lineHeight: 1.7, maxWidth: 620 }}>
-                The client-side experience — discovering a business, selecting a service, booking an appointment, and receiving confirmation — all in under a minute, no app needed.
+                <strong style={{ color: '#94A3B8' }}>Retired project.</strong> The client-side experience — discovering a business, selecting a service, booking an appointment, and receiving confirmation — all in under a minute, no app needed.
               </p>
               <div style={{ borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(99,102,241,0.25)', background: '#000', boxShadow: '0 0 60px rgba(99,102,241,0.1)' }}>
                 <video controls playsInline preload="metadata" style={{ width: '100%', display: 'block', maxHeight: 500 }}>

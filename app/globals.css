@@ -1,0 +1,24 @@
+/* ClearPath Automation — minimal base. All component styling lives in the
+   inline <style> block inside app/page.tsx (cp-* classes). Intentionally no
+   Tailwind and no shared design system: this site is fully self-contained. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #0f172a;
+  color: #e2e8f0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+video {
+  max-width: 100%;
+}

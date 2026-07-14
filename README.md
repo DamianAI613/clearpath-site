@@ -1,27 +1,22 @@
 # ClearPath Automation — clearpathautomation.io
 
-Standalone marketing site. **Deliberately has no database and no shared code.**
+Standalone marketing site. **No database, no server code, no environment variables.**
 
 ## Why it looks like this
 
 ClearPath used to live *inside* the BookIT app as a host-rewrite (`clearpathautomation.io` → `/clearpath`).
 On 2026-07-13 the BookIT Vercel project was deleted and ClearPath died with it, for no reason of its own.
-It is now fully independent: nothing else can take it down.
+It is now fully independent — a static site with nothing to break.
 
 ## Architecture
 
 - `app/page.tsx` — the entire site. One client component, self-contained CSS (`cp-*` classes in an inline `<style>` block). No Tailwind, no design system, no shared components.
-- `app/api/contact-clearpath/route.ts` — the only server code. Sends two emails via Resend (notification to Damian, confirmation to the sender).
-- `public/*.mp4` — demo videos (~19 MB).
+- `public/` — demo videos + the IronSight AI board screenshot.
+- **No API routes. No Supabase. No Stripe. No auth. No middleware. No env vars.**
 
-**No Supabase. No Stripe. No auth. No middleware.** The old visitor counter was dropped — Vercel Analytics covers it.
-
-## Environment variables
-
-| Var | Required | Notes |
-|---|---|---|
-| `RESEND_API_KEY` | Yes | resend.com/api-keys. Without it the build still compiles but the contact form won't send. |
-| `RESEND_FROM_EMAIL` | No | Defaults to `ClearPath Automation <noreply@clearpathautomation.io>`. **The sending domain must be verified in Resend** or delivery fails. |
+Contact is a plain `mailto:` link. The old Resend-backed contact form was removed on 2026-07-14:
+Resend's free tier allows exactly one verified sending domain, and `ironsightai.net` holds it.
+Reviving the form means either upgrading Resend or sending from the IronSight domain — see git history for the removed route.
 
 ## Local
 
@@ -32,4 +27,5 @@ npm run dev
 
 ## Deploy
 
-Vercel → Import `clearpath-site` → set `RESEND_API_KEY` → attach `clearpathautomation.io` + `www`.
+Vercel project `clearpath-site`, auto-deploys from `main`. Domains: `clearpathautomation.io` + `www`.
+Nothing to configure — the build needs no secrets.

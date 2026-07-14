@@ -70,14 +70,15 @@ const PROJECTS = [
   {
     title: 'IronSight AI \u2014 Market Analytics Platform',
     category: 'ML / Data Platform',
-    tagline: 'A machine-learning research system with a live subscriber dashboard.',
-    description: 'An end-to-end analytics platform built solo. A Python engine ingests real-time market data, runs gradient-boosted models trained on years of historical sessions, and publishes directional model output at fixed time horizons to a Next.js dashboard that updates live for subscribers. Every prediction is graded automatically against the outcome once the session closes, and the results are published in full \u2014 hits and misses. Informational software: it reports what the model sees, not what anyone should do.',
-    tech: ['Python', 'scikit-learn', 'Polygon.io', 'Next.js 16', 'Supabase Realtime', 'Stripe', 'Vercel'],
+    tagline: 'An informational software tool \u2014 machine-learning research with a live subscriber dashboard.',
+    description: 'An end-to-end analytics platform built solo. A Python engine ingests real-time market data, runs gradient-boosted models trained on years of historical sessions, and publishes directional model output at fixed time horizons to a Next.js dashboard that updates live for subscribers. Every prediction is graded automatically against the outcome once the session closes, and the results are published in full \u2014 hits and misses. It is a software product, not an advisory service: it reports what the model sees. It does not give financial advice, does not recommend trades, and does not manage anyone\u2019s money.',
+    tech: ['Python', 'scikit-learn', 'Next.js 16', 'Supabase Realtime', 'Stripe', 'Vercel'],
     metrics: [
       'Real-time market data ingestion + feature pipeline',
       'Model output streamed to the browser via Postgres realtime',
       'Automated accuracy grading at fixed horizons, published un-cherry-picked',
       'Tiered Stripe subscriptions with a gated dashboard',
+      'Shipped as an informational tool \u2014 no advice, no recommendations, no managed money',
     ],
     link: 'https://ironsightai.net',
     featured: true,
@@ -174,13 +175,6 @@ const STACK = [
   'Make', 'REST APIs', 'Webhooks', 'Tailwind CSS', 'PWA', 'Git',
 ]
 
-const SERVICE_OPTIONS = [
-  'Workflow Automation',
-  'Custom AI / GPT Agents',
-  'Full-Stack App Development',
-  'API & System Integrations',
-  "Not sure yet — let's talk",
-]
 
 /* ── Component ───────────────────────────────────────────────────────────── */
 
@@ -190,8 +184,6 @@ export default function ClearPathConsulting() {
   const [mounted, setMounted] = useState(false)
   const [statsOpen, setStatsOpen] = useState(false)
   const [expandedService, setExpandedService] = useState<number | null>(null)
-  const [form, setForm] = useState({ name: '', phone: '', email: '', service: '', message: '' })
-  const [formState, setFormState] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
   const contactRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => { setMounted(true) }, [])
@@ -200,23 +192,6 @@ export default function ClearPathConsulting() {
 
   function scrollToContact() {
     contactRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault()
-    setFormState('sending')
-    try {
-      const res = await fetch('/api/contact-clearpath', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      })
-      if (!res.ok) throw new Error('Failed')
-      setFormState('success')
-      setForm({ name: '', phone: '', email: '', service: '', message: '' })
-    } catch {
-      setFormState('error')
-    }
   }
 
   return (
@@ -588,6 +563,7 @@ export default function ClearPathConsulting() {
           {/* Tabs */}
           <div style={{ display: 'flex', gap: 8, marginBottom: 28, flexWrap: 'wrap' }}>
             {[
+              { id: 5, label: '📈 IronSight AI' },
               { id: 0, label: '🤖 AI Research Agent' },
               { id: 1, label: '🏢 BookIT — Business (retired)' },
               { id: 2, label: '👤 BookIT — Client (retired)' },
@@ -612,6 +588,28 @@ export default function ClearPathConsulting() {
           </div>
 
           {/* Video panel */}
+          {activeDemo === 5 && (
+            <div className="cp-fade">
+              <p style={{ fontSize: '0.9rem', color: '#64748B', marginBottom: 20, lineHeight: 1.7, maxWidth: 620 }}>
+                The IronSight AI board: the model&apos;s directional read on each ticker at fixed 15/30/60-minute horizons, then graded HIT or MISS against what actually happened. Built end to end \u2014 Python engine, real-time pipeline, live subscriber dashboard.
+              </p>
+              <div style={{ borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(99,102,241,0.25)', background: '#000', boxShadow: '0 0 60px rgba(99,102,241,0.1)' }}>
+                <img
+                  src="/ironsight-board.png"
+                  alt="IronSight AI board \u2014 directional model output at fixed horizons, graded HIT or MISS"
+                  style={{ width: '100%', display: 'block' }}
+                />
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginTop: 24, flexWrap: 'wrap' }}>
+                <a href="https://ironsightai.net" target="_blank" rel="noopener noreferrer" className="cp-btn-primary" style={{ textDecoration: 'none' }}>
+                  See IronSight AI &rarr;
+                </a>
+                <p style={{ fontSize: '0.78rem', color: '#475569', margin: 0, maxWidth: 420, lineHeight: 1.6 }}>
+                  An informational software tool. Not financial advice, not a recommendation to buy or sell anything.
+                </p>
+              </div>
+            </div>
+          )}
           {activeDemo === 0 && (
             <div className="cp-fade">
               <p style={{ fontSize: '0.9rem', color: '#64748B', marginBottom: 20, lineHeight: 1.7, maxWidth: 620 }}>
@@ -715,101 +713,23 @@ export default function ClearPathConsulting() {
               Describe what you&apos;re trying to automate or build. I&apos;ll get back to you within 1 business day.
             </p>
 
-            {formState === 'success' ? (
-              <div style={{ background: 'rgba(99,102,241,0.08)', border: '1px solid rgba(99,102,241,0.25)', borderRadius: 16, padding: '48px 32px', textAlign: 'center' }}>
-                <div style={{ fontSize: '3rem', marginBottom: 16 }}>✅</div>
-                <h3 style={{ color: '#FAFAFA', fontWeight: 700, fontSize: '1.2rem', margin: '0 0 10px' }}>Message sent!</h3>
-                <p style={{ color: '#64748B', fontSize: '0.9rem', margin: 0, lineHeight: 1.6 }}>
-                  I&apos;ll review your project and get back to you shortly. Check your inbox for a confirmation.
-                </p>
-                <button className="cp-btn-secondary" style={{ marginTop: 24 }} onClick={() => setFormState('idle')}>
-                  Send another message
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 16, padding: '36px 32px', display: 'flex', flexDirection: 'column', gap: 22 }}>
-                <div className="cp-form-row" style={{ display: 'flex', gap: 18 }}>
-                  <div style={{ flex: 1 }}>
-                    <label className="cp-label" htmlFor="cp-name">Name *</label>
-                    <input
-                      id="cp-name"
-                      className="cp-input"
-                      type="text"
-                      placeholder="Your name"
-                      required
-                      value={form.name}
-                      onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
-                    />
-                  </div>
-                  <div style={{ flex: 1 }}>
-                    <label className="cp-label" htmlFor="cp-phone">Phone *</label>
-                    <input
-                      id="cp-phone"
-                      className="cp-input"
-                      type="tel"
-                      placeholder="(555) 000-0000"
-                      required
-                      value={form.phone}
-                      onChange={e => setForm(f => ({ ...f, phone: e.target.value }))}
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label className="cp-label" htmlFor="cp-email">Email</label>
-                  <input
-                    id="cp-email"
-                    className="cp-input"
-                    type="email"
-                    placeholder="you@company.com"
-                    value={form.email}
-                    onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
-                  />
-                </div>
-
-                <div>
-                  <label className="cp-label" htmlFor="cp-service">What are you looking for?</label>
-                  <select
-                    id="cp-service"
-                    className="cp-input"
-                    value={form.service}
-                    onChange={e => setForm(f => ({ ...f, service: e.target.value }))}
-                    style={{ appearance: 'none', cursor: 'pointer' }}
-                  >
-                    <option value="" style={{ background: '#ffffff', color: '#0F172A' }}>Select a service (optional)</option>
-                    {SERVICE_OPTIONS.map(o => (
-                      <option key={o} value={o} style={{ background: '#ffffff', color: '#0F172A' }}>{o}</option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label className="cp-label" htmlFor="cp-message">Project details</label>
-                  <textarea
-                    id="cp-message"
-                    className="cp-input cp-textarea"
-                    placeholder="Tell us what you're looking to build or automate — what's the problem, what systems are involved, and what success looks like. Also let us know your preferred date and time to be contacted."
-                    required
-                    value={form.message}
-                    onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
-                  />
-                </div>
-
-                {formState === 'error' && (
-                  <p style={{ color: '#F87171', fontSize: '0.85rem', margin: 0, background: 'rgba(248,113,113,0.08)', border: '1px solid rgba(248,113,113,0.2)', borderRadius: 8, padding: '10px 14px' }}>
-                    Something went wrong. Try emailing directly at support@clearpathautomation.io
-                  </p>
-                )}
-
-                <button
-                  type="submit"
-                  className="cp-btn-primary"
-                  disabled={formState === 'sending'}
-                  style={{ alignSelf: 'flex-start', opacity: formState === 'sending' ? 0.7 : 1, cursor: formState === 'sending' ? 'not-allowed' : 'pointer' }}
-                >
-                  {formState === 'sending' ? 'Sending…' : 'Send message →'}
-                </button>
-              </form>
-            )}
+            <div style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 16, padding: '44px 32px', textAlign: 'center' }}>
+              <p style={{ fontSize: '0.95rem', color: '#94A3B8', margin: '0 0 28px', lineHeight: 1.8 }}>
+                Email me directly with what you&apos;re trying to automate or build.
+                <br />
+                Include the rough shape of the problem and I&apos;ll tell you honestly whether it&apos;s worth building.
+              </p>
+              <a
+                href="mailto:damianwroblewski2016@gmail.com?subject=ClearPath%20Automation%20%E2%80%94%20project%20inquiry"
+                className="cp-btn-primary"
+                style={{ textDecoration: 'none', display: 'inline-block' }}
+              >
+                Email ClearPath &rarr;
+              </a>
+              <p style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: '0.8rem', color: '#475569', margin: '24px 0 0' }}>
+                damianwroblewski2016@gmail.com
+              </p>
+            </div>
           </div>
         </div>
       </div>

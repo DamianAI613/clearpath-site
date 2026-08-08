@@ -5,9 +5,9 @@ import { useState, useEffect, useRef } from 'react'
 /* ── Data ────────────────────────────────────────────────────────────────── */
 
 const STATS = [
-  { value: '6+',     label: 'Production Apps Shipped' },
-  { value: '20+',    label: 'Automations Built' },
-  { value: '10+',    label: 'Custom AI Agents' },
+  { value: '6+', label: 'Production Apps Shipped' },
+  { value: '20+', label: 'Automations Built' },
+  { value: '10+', label: 'Custom AI Agents' },
   { value: '60–80%', label: 'Manual Work Eliminated' },
 ]
 
@@ -68,17 +68,17 @@ const SERVICES = [
 
 const PROJECTS = [
   {
-    title: 'IronSight AI \u2014 Market Analytics Platform',
+    title: 'IronSight AI — Market Analytics Platform',
     category: 'ML / Data Platform',
-    tagline: 'An informational software tool \u2014 machine-learning research with a live subscriber dashboard.',
-    description: 'An end-to-end analytics platform built solo. A Python engine ingests real-time market data, runs gradient-boosted models trained on years of historical sessions, and publishes directional model output at fixed time horizons to a Next.js dashboard that updates live for subscribers. Every prediction is graded automatically against the outcome once the session closes, and the results are published in full \u2014 hits and misses. It is a software product, not an advisory service: it reports what the model sees. It does not give financial advice, does not recommend trades, and does not manage anyone\u2019s money.',
+    tagline: 'AI Model + Server + Momentum analytics software — machine-learning research with a live subscriber dashboard.',
+    description: 'An end-to-end analytics platform built solo. A Python engine ingests real-time market data, runs models trained on years of historical sessions, and publishes directional model output at fixed time horizons to a Next.js dashboard that updates live for subscribers. Every prediction is graded automatically against the outcome once the session closes, and the results are published in full — hits and misses. It is a software product, not an advisory service: it reports what the model sees. It does not give financial advice, does not recommend trades, and does not manage anyone’s money.',
     tech: ['Python', 'scikit-learn', 'Next.js 16', 'Supabase Realtime', 'Stripe', 'Vercel'],
     metrics: [
-      'Real-time market data ingestion + feature pipeline',
-      'Model output streamed to the browser via Postgres realtime',
+      'Real-time market data ingestion',
+      'Model output streamed to the browser in realtime',
       'Automated accuracy grading at fixed horizons, published un-cherry-picked',
       'Tiered Stripe subscriptions with a gated dashboard',
-      'Shipped as an informational tool \u2014 no advice, no recommendations, no managed money',
+      'AI model + momentum scanner — AI-generated analytics, informational only, not financial advice',
     ],
     link: 'https://ironsightai.net',
     featured: true,
@@ -155,17 +155,17 @@ const PROJECTS = [
   },
   {
     title: 'Enterprise Workflow Suite',
-    category: 'Python Desktop Tools',
-    tagline: 'Three custom tools deployed inside a Fortune 500 company.',
-    description: 'A suite of purpose-built Python desktop tools engineered to eliminate manual, repetitive work from a high-volume clinical decision workflow. Each tool targets a specific friction point — clipboard automation, decision path mapping, and interactive flowchart generation. Full functionality cannot be publicly demonstrated as these tools are actively deployed in a Fortune 500 enterprise environment.',
+    category: 'Enterprise Automation',
+    tagline: 'Custom desktop tools that remove manual work from a high-volume enterprise workflow.',
+    description: 'A suite of purpose-built Python desktop tools engineered to eliminate manual, repetitive work from a high-volume operational workflow at a large enterprise. Each tool targets a specific friction point — clipboard automation, decision-path mapping, and interactive flowchart generation. Details and live demos are withheld: these tools run inside a private enterprise environment.',
     tech: ['Python', 'tkinter', 'openpyxl', 'pynput', 'HTML/JS', 'Excel Parsing'],
     metrics: [
-      'QuickClip Pro — auto-advancing clipboard tool with global keyboard detection',
-      'PathLogic Mapper — live color-coded decision path visualizer',
-      'DecisionFlow Builder — one-click interactive HTML flowchart generator',
+      'Auto-advancing clipboard automation with global keyboard detection',
+      'Live, color-coded decision-path visualizer',
+      'One-click interactive flowchart generator',
       'Zero external dependencies on the end-user side',
     ],
-    featured: true,
+    featured: false,
   },
 ]
 
@@ -174,7 +174,6 @@ const STACK = [
   'OpenAI API', 'Claude API', 'scikit-learn', 'Stripe', 'Twilio', 'Vercel', 'Zapier',
   'Make', 'REST APIs', 'Webhooks', 'Tailwind CSS', 'PWA', 'Git',
 ]
-
 
 /* ── Component ───────────────────────────────────────────────────────────── */
 
@@ -198,115 +197,127 @@ export default function ClearPathConsulting() {
     <div style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", color: '#E2E8F0', background: '#09090B', minHeight: '100vh', overflowX: 'hidden' }}>
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-        @keyframes fadeIn  { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes glow    { 0%,100% { opacity: 0.35; } 50% { opacity: 0.65; } }
-        @keyframes pulse   { 0%,100% { transform: scale(1); } 50% { transform: scale(1.03); } }
-        .cp-fade    { animation: fadeIn 0.4s ease-out; }
-        .cp-section { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
-        .cp-glow {
-          position: absolute; top: -220px; left: 50%; transform: translateX(-50%);
-          width: 700px; height: 500px; border-radius: 50%;
-          background: radial-gradient(ellipse, rgba(99,102,241,0.1) 0%, transparent 70%);
-          pointer-events: none; animation: glow 5s ease-in-out infinite;
-        }
-        .cp-stat {
-          background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
-          border-radius: 14px; padding: 28px 20px; text-align: center;
-          transition: border-color 0.25s, background 0.25s;
-        }
-        .cp-stat:hover { border-color: rgba(99,102,241,0.35); background: rgba(99,102,241,0.05); }
-        .cp-service {
-          background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06);
-          border-radius: 16px; padding: 28px; transition: border-color 0.25s, background 0.25s, transform 0.25s;
-        }
-        .cp-service:hover { border-color: rgba(99,102,241,0.3); background: rgba(99,102,241,0.04); transform: translateY(-2px); }
-        .cp-project-tab {
-          background: none; border: none; text-align: left; padding: 16px 20px;
-          cursor: pointer; font-family: inherit; width: 100%;
-          border-left: 2px solid transparent; transition: all 0.2s; border-radius: 0 8px 8px 0;
-        }
-        .cp-project-tab:hover { background: rgba(255,255,255,0.03); }
-        .cp-project-tab[data-active="true"] { border-left-color: #6366F1; background: rgba(99,102,241,0.07); }
-        .cp-tech {
-          display: inline-block; padding: 4px 12px; border-radius: 6px; font-size: 0.75rem;
-          font-weight: 500; background: rgba(99,102,241,0.1); color: #A5B4FC;
-          border: 1px solid rgba(99,102,241,0.15); margin: 3px 4px 3px 0;
-          font-family: 'JetBrains Mono', 'Fira Code', monospace;
-        }
-        .cp-metric { position: relative; padding-left: 18px; color: #94A3B8; font-size: 0.875rem; line-height: 1.7; }
-        .cp-metric::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: #6366F1; }
-        .cp-stack-tag {
-          display: inline-block; padding: 6px 16px; border-radius: 100px; font-size: 0.8rem;
-          font-weight: 500; color: #94A3B8; border: 1px solid rgba(255,255,255,0.07);
-          background: rgba(255,255,255,0.02); transition: all 0.2s;
-        }
-        .cp-stack-tag:hover { color: #E2E8F0; border-color: rgba(99,102,241,0.4); background: rgba(99,102,241,0.06); }
-        .cp-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent); margin: 0; border: none; }
-        .cp-link { color: #6366F1; text-decoration: none; font-weight: 600; font-size: 0.88rem; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s; }
-        .cp-link:hover { color: #818CF8; }
-        .cp-btn-primary {
-          display: inline-block; background: #6366F1; color: white; padding: 14px 32px;
-          border-radius: 10px; font-weight: 700; font-size: 0.95rem; cursor: pointer;
-          border: none; font-family: inherit; transition: background 0.2s, transform 0.15s;
-          text-decoration: none;
-        }
-        .cp-btn-primary:hover { background: #4F46E5; transform: translateY(-1px); }
-        .cp-btn-secondary {
-          display: inline-block; background: transparent; color: #94A3B8; padding: 14px 32px;
-          border-radius: 10px; font-weight: 600; font-size: 0.95rem; cursor: pointer;
-          border: 1px solid rgba(255,255,255,0.1); font-family: inherit;
-          transition: border-color 0.2s, color 0.2s; text-decoration: none;
-        }
-        .cp-btn-secondary:hover { border-color: rgba(99,102,241,0.5); color: #E2E8F0; }
-        .cp-input {
-          width: 100%; background: #ffffff; border: 1px solid #CBD5E1;
-          border-radius: 10px; padding: 13px 16px; color: #0F172A; font-size: 0.9rem;
-          font-family: inherit; outline: none; box-sizing: border-box; transition: border-color 0.2s;
-        }
-        .cp-input:focus { border-color: #6366F1; box-shadow: 0 0 0 3px rgba(99,102,241,0.15); }
-        .cp-input::placeholder { color: #94A3B8; }
-        .cp-input:-webkit-autofill,
-        .cp-input:-webkit-autofill:hover,
-        .cp-input:-webkit-autofill:focus,
-        .cp-input:-webkit-autofill:active {
-          -webkit-box-shadow: 0 0 0 40px #ffffff inset !important;
-          -webkit-text-fill-color: #0F172A !important;
-          transition: background-color 5000s ease-in-out 0s;
-        }
-        .cp-textarea { resize: vertical; min-height: 130px; }
-        .cp-label { display: block; font-size: 0.82rem; font-weight: 600; color: #64748B; margin-bottom: 8px; letter-spacing: 0.03em; text-transform: uppercase; }
-        .cp-category { font-size: 0.72rem; font-weight: 700; color: #6366F1; background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.2); padding: 2px 10px; border-radius: 100px; letter-spacing: 0.04em; }
-        @media (max-width: 768px) {
-          .cp-hero-title    { font-size: 2.4rem !important; }
-          .cp-stats-grid    { grid-template-columns: repeat(2,1fr) !important; }
-          .cp-case-grid     { grid-template-columns: repeat(2,1fr) !important; }
-          .cp-services-grid { grid-template-columns: 1fr !important; }
-          .cp-project-layout { flex-direction: column !important; }
-          .cp-project-tabs { flex-direction: row !important; overflow-x: auto; border-left: none !important; border-bottom: 1px solid rgba(255,255,255,0.06) !important; }
-          .cp-project-tab { border-left: none !important; border-bottom: 2px solid transparent !important; border-radius: 0 !important; white-space: nowrap; }
-          .cp-project-tab[data-active="true"] { border-left-color: transparent !important; border-bottom-color: #6366F1 !important; }
-          .cp-form-row   { flex-direction: column !important; }
-          .cp-hero-ctas  { flex-direction: column !important; align-items: stretch !important; }
-          .cp-hero-ctas button, .cp-hero-ctas a { text-align: center; }
-          .cp-nav-links  { gap: 16px !important; }
-          .cp-nav-link   { font-size: 0.78rem !important; }
-          .cp-section    { padding: 0 16px !important; }
-          .cp-project-detail { padding-left: 0 !important; padding-top: 24px !important; }
-        }
-        @media (max-width: 480px) {
-          .cp-hero-title    { font-size: 2rem !important; }
-          .cp-case-grid     { grid-template-columns: 1fr !important; }
-          .cp-services-grid { grid-template-columns: 1fr !important; }
-          .cp-nav-links     { display: none !important; }
-        }
-      `}</style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes glow { 0%,100% { opacity: 0.35; } 50% { opacity: 0.65; } }
+@keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.03); } }
+.cp-fade { animation: fadeIn 0.4s ease-out; }
+.cp-section { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+.cp-glow {
+  position: absolute; top: -220px; left: 50%; transform: translateX(-50%);
+  width: 700px; height: 500px; border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(99,102,241,0.1) 0%, transparent 70%);
+  pointer-events: none; animation: glow 5s ease-in-out infinite;
+}
+.cp-stat {
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px; padding: 28px 20px; text-align: center;
+  transition: border-color 0.25s, background 0.25s;
+}
+.cp-stat:hover { border-color: rgba(99,102,241,0.35); background: rgba(99,102,241,0.05); }
+.cp-service {
+  background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px; padding: 28px; transition: border-color 0.25s, background 0.25s, transform 0.25s;
+}
+.cp-service:hover { border-color: rgba(99,102,241,0.3); background: rgba(99,102,241,0.04); transform: translateY(-2px); }
+.cp-project-tab {
+  background: none; border: none; text-align: left; padding: 16px 20px;
+  cursor: pointer; font-family: inherit; width: 100%;
+  border-left: 2px solid transparent; transition: all 0.2s; border-radius: 0 8px 8px 0;
+}
+.cp-project-tab:hover { background: rgba(255,255,255,0.03); }
+.cp-project-tab[data-active="true"] { border-left-color: #6366F1; background: rgba(99,102,241,0.07); }
+.cp-tech {
+  display: inline-block; padding: 4px 12px; border-radius: 6px; font-size: 0.75rem;
+  font-weight: 500; background: rgba(99,102,241,0.1); color: #A5B4FC;
+  border: 1px solid rgba(99,102,241,0.15); margin: 3px 4px 3px 0;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+.cp-metric { position: relative; padding-left: 18px; color: #94A3B8; font-size: 0.875rem; line-height: 1.7; }
+.cp-metric::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: #6366F1; }
+.cp-stack-tag {
+  display: inline-block; padding: 6px 16px; border-radius: 100px; font-size: 0.8rem;
+  font-weight: 500; color: #94A3B8; border: 1px solid rgba(255,255,255,0.07);
+  background: rgba(255,255,255,0.02); transition: all 0.2s;
+}
+.cp-stack-tag:hover { color: #E2E8F0; border-color: rgba(99,102,241,0.4); background: rgba(99,102,241,0.06); }
+.cp-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent); margin: 0; border: none; }
+.cp-link { color: #6366F1; text-decoration: none; font-weight: 600; font-size: 0.88rem; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s; }
+.cp-link:hover { color: #818CF8; }
+.cp-btn-primary {
+  display: inline-block; background: #6366F1; color: white; padding: 14px 32px;
+  border-radius: 10px; font-weight: 700; font-size: 0.95rem; cursor: pointer;
+  border: none; font-family: inherit; transition: background 0.2s, transform 0.15s;
+  text-decoration: none;
+}
+.cp-btn-primary:hover { background: #4F46E5; transform: translateY(-1px); }
+.cp-btn-secondary {
+  display: inline-block; background: transparent; color: #94A3B8; padding: 14px 32px;
+  border-radius: 10px; font-weight: 600; font-size: 0.95rem; cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.1); font-family: inherit;
+  transition: border-color 0.2s, color 0.2s; text-decoration: none;
+}
+.cp-btn-secondary:hover { border-color: rgba(99,102,241,0.5); color: #E2E8F0; }
+.cp-input {
+  width: 100%; background: #ffffff; border: 1px solid #CBD5E1;
+  border-radius: 10px; padding: 13px 16px; color: #0F172A; font-size: 0.9rem;
+  font-family: inherit; outline: none; box-sizing: border-box; transition: border-color 0.2s;
+}
+.cp-input:focus { border-color: #6366F1; box-shadow: 0 0 0 3px rgba(99,102,241,0.15); }
+.cp-input::placeholder { color: #94A3B8; }
+.cp-input:-webkit-autofill,
+.cp-input:-webkit-autofill:hover,
+.cp-input:-webkit-autofill:focus,
+.cp-input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 40px #ffffff inset !important;
+  -webkit-text-fill-color: #0F172A !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+.cp-textarea { resize: vertical; min-height: 130px; }
+.cp-label { display: block; font-size: 0.82rem; font-weight: 600; color: #64748B; margin-bottom: 8px; letter-spacing: 0.03em; text-transform: uppercase; }
+.cp-category { font-size: 0.72rem; font-weight: 700; color: #6366F1; background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.2); padding: 2px 10px; border-radius: 100px; letter-spacing: 0.04em; }
+.cp-flagship {
+  position: relative; border: 1px solid rgba(99,102,241,0.35);
+  background: linear-gradient(180deg, rgba(30,27,54,0.6), rgba(14,14,18,0.6));
+  border-radius: 22px; padding: 44px; overflow: hidden;
+}
+.cp-flag-fact-n { font-size: 1.35rem; font-weight: 800; color: #FAFAFA; }
+.cp-flag-fact-l { font-size: 0.8rem; color: #64748B; }
+@media (max-width: 768px) {
+  .cp-hero-title { font-size: 2.4rem !important; }
+  .cp-stats-grid { grid-template-columns: repeat(2,1fr) !important; }
+  .cp-case-grid { grid-template-columns: repeat(2,1fr) !important; }
+  .cp-services-grid { grid-template-columns: 1fr !important; }
+  .cp-project-layout { flex-direction: column !important; }
+  .cp-project-tabs { flex-direction: row !important; overflow-x: auto; border-left: none !important; border-bottom: 1px solid rgba(255,255,255,0.06) !important; }
+  .cp-project-tab { border-left: none !important; border-bottom: 2px solid transparent !important; border-radius: 0 !important; white-space: nowrap; }
+  .cp-project-tab[data-active="true"] { border-left-color: transparent !important; border-bottom-color: #6366F1 !important; }
+  .cp-form-row { flex-direction: column !important; }
+  .cp-hero-ctas { flex-direction: column !important; align-items: stretch !important; }
+  .cp-hero-ctas button, .cp-hero-ctas a { text-align: center; }
+  .cp-nav-links { gap: 16px !important; }
+  .cp-nav-link { font-size: 0.78rem !important; }
+  .cp-section { padding: 0 16px !important; }
+  .cp-project-detail { padding-left: 0 !important; padding-top: 24px !important; }
+  .cp-flagship { padding: 28px !important; }
+  .cp-flag-facts { gap: 20px !important; }
+}
+@media (max-width: 480px) {
+  .cp-hero-title { font-size: 2rem !important; }
+  .cp-case-grid { grid-template-columns: 1fr !important; }
+  .cp-services-grid { grid-template-columns: 1fr !important; }
+  .cp-nav-links { display: none !important; }
+}
+`}</style>
 
       {/* ── Nav ───────────────────────────────────────────────────── */}
       <nav style={{ position: 'sticky', top: 0, zIndex: 50, background: 'rgba(9,9,11,0.85)', backdropFilter: 'blur(12px)', borderBottom: '1px solid rgba(255,255,255,0.05)', padding: '0 24px' }}>
         <div style={{ maxWidth: 1080, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 60 }}>
-          <span style={{ fontFamily: "'JetBrains Mono','Fira Code',monospace", fontSize: '0.85rem', fontWeight: 700, color: '#6366F1', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-            ClearPath Automation
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+            <img src="/clearpath-mark.svg" alt="ClearPath Automation" width={30} height={30} style={{ display: 'block', borderRadius: 8 }} />
+            <span style={{ fontFamily: "'JetBrains Mono','Fira Code',monospace", fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+              <span style={{ color: '#FAFAFA' }}>ClearPath</span> <span style={{ color: '#6366F1' }}>Automation</span>
+            </span>
           </span>
           <div className="cp-nav-links" style={{ display: 'flex', gap: 28 }}>
             {['#services', '#work', '#demo', '#contact'].map((href, i) => (
@@ -355,6 +366,52 @@ export default function ClearPathConsulting() {
         </div>
       </div>
 
+      {/* ── Flagship: IronSight AI ─────────────────────────────────── */}
+      <div id="flagship" style={{ padding: '24px 24px 40px' }}>
+        <div className="cp-section">
+          <p style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: '0.75rem', color: '#6366F1', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 14, fontWeight: 600 }}>
+            Flagship Build
+          </p>
+          <div className="cp-flagship">
+            <div style={{ display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap', position: 'relative' }}>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontSize: '1.5rem', fontWeight: 800, color: '#FAFAFA', letterSpacing: '-0.01em' }}>
+                <span style={{ width: 34, height: 34, borderRadius: 9, background: 'linear-gradient(135deg,#6366F1,#A78BFA)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.1rem' }}>◎</span>
+                IronSight AI
+              </span>
+              <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: '0.68rem', letterSpacing: '0.18em', color: '#A5B4FC', border: '1px solid rgba(99,102,241,0.35)', padding: '4px 10px', borderRadius: 100 }}>
+                LOCKED ON TARGET
+              </span>
+            </div>
+            <h2 style={{ fontSize: '2.1rem', fontWeight: 800, color: '#FAFAFA', letterSpacing: '-0.025em', margin: '20px 0 0', position: 'relative' }}>
+              The market&apos;s open bell, <span style={{ color: '#6366F1' }}>read by an AI.</span>
+            </h2>
+            <p style={{ fontSize: '1rem', color: '#94A3B8', lineHeight: 1.8, margin: '14px 0 0', maxWidth: 660, position: 'relative' }}>
+              IronSight AI is ClearPath&apos;s flagship product — an end-to-end market-analytics platform built entirely in-house. A Python machine-learning engine ingests real-time market data, recognizes setups against years of historical sessions, and publishes a directional read at fixed time horizons to a live Next.js dashboard. Every call is graded automatically once the session closes and published in full — hits and misses, un-cherry-picked. It is a software product, not an advisory service: it reports what the model sees.
+            </p>
+            <div style={{ margin: '22px 0 0', position: 'relative' }}>
+              {['Python', 'scikit-learn', 'Next.js 16', 'Supabase Realtime', 'Stripe', 'Vercel'].map(t => (
+                <span key={t} className="cp-tech">{t}</span>
+              ))}
+            </div>
+            <div className="cp-flag-facts" style={{ display: 'flex', flexWrap: 'wrap', gap: 30, margin: '26px 0 0', position: 'relative' }}>
+              <div><div className="cp-flag-fact-n">Live</div><div className="cp-flag-fact-l">real-time subscriber dashboard</div></div>
+              <div><div className="cp-flag-fact-n">Graded</div><div className="cp-flag-fact-l">every call, hits & misses public</div></div>
+              <div><div className="cp-flag-fact-n">Months</div><div className="cp-flag-fact-l">of historical training data</div></div>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap', margin: '30px 0 0', position: 'relative' }}>
+              <a href="https://ironsightai.net" target="_blank" rel="noopener noreferrer" className="cp-btn-primary" style={{ textDecoration: 'none' }}>
+                Visit ironsightai.net →
+              </a>
+              <a href="#work" className="cp-btn-secondary">
+                How it was built
+              </a>
+            </div>
+            <p style={{ fontSize: '0.72rem', color: '#475569', margin: '20px 0 0', position: 'relative', lineHeight: 1.6, maxWidth: 620 }}>
+              IronSight AI is an AI model and momentum scanner. Its analytics are AI-generated and can be wrong — informational only, not financial advice, and not a recommendation to buy or sell any security.
+            </p>
+          </div>
+        </div>
+      </div>
 
       {/* ── Services ──────────────────────────────────────────────── */}
       <div id="services" style={{ padding: '72px 24px' }}>
@@ -567,7 +624,6 @@ export default function ClearPathConsulting() {
               { id: 0, label: '🤖 AI Research Agent' },
               { id: 1, label: '🏢 BookIT — Business (retired)' },
               { id: 2, label: '👤 BookIT — Client (retired)' },
-              { id: 3, label: '🛠️ Enterprise Tools' },
               { id: 4, label: '🎬 ClearPath Overview' },
             ].map(tab => (
               <button
@@ -591,12 +647,12 @@ export default function ClearPathConsulting() {
           {activeDemo === 5 && (
             <div className="cp-fade">
               <p style={{ fontSize: '0.9rem', color: '#64748B', marginBottom: 20, lineHeight: 1.7, maxWidth: 620 }}>
-                The IronSight AI board: the model&apos;s directional read on each ticker at fixed 15/30/60-minute horizons, then graded HIT or MISS against what actually happened. Built end to end \u2014 Python engine, real-time pipeline, live subscriber dashboard.
+                The IronSight AI board: the model&apos;s directional read on each ticker at fixed 15/30/60-minute horizons, then graded HIT or MISS against what actually happened. Built end to end — Python engine, real-time pipeline, live subscriber dashboard.
               </p>
               <div style={{ borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(99,102,241,0.25)', background: '#000', boxShadow: '0 0 60px rgba(99,102,241,0.1)' }}>
                 <img
                   src="/ironsight-board.png"
-                  alt="IronSight AI board \u2014 directional model output at fixed horizons, graded HIT or MISS"
+                  alt="IronSight AI board — directional model output at fixed horizons, graded HIT or MISS"
                   style={{ width: '100%', display: 'block' }}
                 />
               </div>
@@ -605,7 +661,7 @@ export default function ClearPathConsulting() {
                   See IronSight AI &rarr;
                 </a>
                 <p style={{ fontSize: '0.78rem', color: '#475569', margin: 0, maxWidth: 420, lineHeight: 1.6 }}>
-                  An informational software tool. Not financial advice, not a recommendation to buy or sell anything.
+                  IronSight AI is an AI model and momentum scanner. Its analytics are AI-generated and can be wrong — informational only, not financial advice, and not a recommendation to buy or sell any security.
                 </p>
               </div>
             </div>
@@ -642,18 +698,6 @@ export default function ClearPathConsulting() {
               <div style={{ borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(99,102,241,0.25)', background: '#000', boxShadow: '0 0 60px rgba(99,102,241,0.1)' }}>
                 <video controls playsInline preload="metadata" style={{ width: '100%', display: 'block', maxHeight: 500 }}>
                   <source src="/client-tutorial.mp4" type="video/mp4" />
-                </video>
-              </div>
-            </div>
-          )}
-          {activeDemo === 3 && (
-            <div className="cp-fade">
-              <p style={{ fontSize: '0.9rem', color: '#64748B', marginBottom: 20, lineHeight: 1.7, maxWidth: 620 }}>
-                Three custom Python desktop tools — QuickClip Pro, PathLogic Mapper, and DecisionFlow Builder — engineered to eliminate manual work from a high-volume enterprise workflow. Currently deployed inside a Fortune 500 company.
-              </p>
-              <div style={{ borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(99,102,241,0.25)', background: '#000', boxShadow: '0 0 60px rgba(99,102,241,0.1)' }}>
-                <video controls playsInline preload="metadata" style={{ width: '100%', display: 'block', maxHeight: 500 }}>
-                  <source src="/ToolsVideoFinal.mp4" type="video/mp4" />
                 </video>
               </div>
             </div>
@@ -720,14 +764,14 @@ export default function ClearPathConsulting() {
                 Include the rough shape of the problem and I&apos;ll tell you honestly whether it&apos;s worth building.
               </p>
               <a
-                href="mailto:damianwroblewski2016@gmail.com?subject=ClearPath%20Automation%20%E2%80%94%20project%20inquiry"
+                href="mailto:support@clearpathautomation.io?subject=ClearPath%20Automation%20%E2%80%94%20project%20inquiry"
                 className="cp-btn-primary"
                 style={{ textDecoration: 'none', display: 'inline-block' }}
               >
                 Email ClearPath &rarr;
               </a>
               <p style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: '0.8rem', color: '#475569', margin: '24px 0 0' }}>
-                damianwroblewski2016@gmail.com
+                support@clearpathautomation.io
               </p>
             </div>
           </div>
@@ -739,8 +783,11 @@ export default function ClearPathConsulting() {
       {/* ── Footer ────────────────────────────────────────────────── */}
       <div style={{ padding: '40px 24px 56px', textAlign: 'center' }}>
         <div className="cp-section">
-          <p style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: '0.8rem', color: '#6366F1', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', margin: '0 0 8px' }}>
-            ClearPath Automation
+          <p style={{ display: 'inline-flex', alignItems: 'center', gap: 9, margin: '0 0 8px' }}>
+            <img src="/clearpath-mark.svg" alt="" width={26} height={26} style={{ display: 'block', borderRadius: 7 }} />
+            <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: '0.8rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+              <span style={{ color: '#FAFAFA' }}>ClearPath</span> <span style={{ color: '#6366F1' }}>Automation</span>
+            </span>
           </p>
           <p style={{ fontSize: '0.75rem', color: '#1E293B', margin: 0 }}>
             © {new Date().getFullYear()} ClearPath Automation · Chicago, IL

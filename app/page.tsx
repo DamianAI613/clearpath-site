@@ -313,8 +313,11 @@ export default function ClearPathConsulting() {
       {/* ── Nav ───────────────────────────────────────────────────── */}
       <nav style={{ position: 'sticky', top: 0, zIndex: 50, background: 'rgba(9,9,11,0.85)', backdropFilter: 'blur(12px)', borderBottom: '1px solid rgba(255,255,255,0.05)', padding: '0 24px' }}>
         <div style={{ maxWidth: 1080, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 60 }}>
-          <span style={{ fontFamily: "'JetBrains Mono','Fira Code',monospace", fontSize: '0.85rem', fontWeight: 700, color: '#6366F1', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-            ClearPath Automation
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+            <img src="/clearpath-mark.svg" alt="ClearPath Automation" width={30} height={30} style={{ display: 'block', borderRadius: 8 }} />
+            <span style={{ fontFamily: "'JetBrains Mono','Fira Code',monospace", fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+              <span style={{ color: '#FAFAFA' }}>ClearPath</span> <span style={{ color: '#6366F1' }}>Automation</span>
+            </span>
           </span>
           <div className="cp-nav-links" style={{ display: 'flex', gap: 28 }}>
             {['#services', '#work', '#demo', '#contact'].map((href, i) => (
@@ -780,8 +783,11 @@ export default function ClearPathConsulting() {
       {/* ── Footer ────────────────────────────────────────────────── */}
       <div style={{ padding: '40px 24px 56px', textAlign: 'center' }}>
         <div className="cp-section">
-          <p style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: '0.8rem', color: '#6366F1', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', margin: '0 0 8px' }}>
-            ClearPath Automation
+          <p style={{ display: 'inline-flex', alignItems: 'center', gap: 9, margin: '0 0 8px' }}>
+            <img src="/clearpath-mark.svg" alt="" width={26} height={26} style={{ display: 'block', borderRadius: 7 }} />
+            <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: '0.8rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+              <span style={{ color: '#FAFAFA' }}>ClearPath</span> <span style={{ color: '#6366F1' }}>Automation</span>
+            </span>
           </p>
           <p style={{ fontSize: '0.75rem', color: '#1E293B', margin: 0 }}>
             © {new Date().getFullYear()} ClearPath Automation · Chicago, IL

@@ -70,15 +70,15 @@ const PROJECTS = [
   {
     title: 'IronSight AI — Market Analytics Platform',
     category: 'ML / Data Platform',
-    tagline: 'An informational software tool — machine-learning research with a live subscriber dashboard.',
-    description: 'An end-to-end analytics platform built solo. A Python engine ingests real-time market data, runs gradient-boosted models trained on years of historical sessions, and publishes directional model output at fixed time horizons to a Next.js dashboard that updates live for subscribers. Every prediction is graded automatically against the outcome once the session closes, and the results are published in full — hits and misses. It is a software product, not an advisory service: it reports what the model sees. It does not give financial advice, does not recommend trades, and does not manage anyone’s money.',
+    tagline: 'AI Model + Server + Momentum analytics software — machine-learning research with a live subscriber dashboard.',
+    description: 'An end-to-end analytics platform built solo. A Python engine ingests real-time market data, runs models trained on years of historical sessions, and publishes directional model output at fixed time horizons to a Next.js dashboard that updates live for subscribers. Every prediction is graded automatically against the outcome once the session closes, and the results are published in full — hits and misses. It is a software product, not an advisory service: it reports what the model sees. It does not give financial advice, does not recommend trades, and does not manage anyone’s money.',
     tech: ['Python', 'scikit-learn', 'Next.js 16', 'Supabase Realtime', 'Stripe', 'Vercel'],
     metrics: [
-      'Real-time market data ingestion + feature pipeline',
-      'Model output streamed to the browser via Postgres realtime',
+      'Real-time market data ingestion',
+      'Model output streamed to the browser in realtime',
       'Automated accuracy grading at fixed horizons, published un-cherry-picked',
       'Tiered Stripe subscriptions with a gated dashboard',
-      'Shipped as an informational tool — no advice, no recommendations, no managed money',
+      'AI model + momentum scanner — AI-generated analytics, informational only, not financial advice',
     ],
     link: 'https://ironsightai.net',
     featured: true,
@@ -407,7 +407,7 @@ export default function ClearPathConsulting() {
               </a>
             </div>
             <p style={{ fontSize: '0.72rem', color: '#475569', margin: '20px 0 0', position: 'relative', lineHeight: 1.6, maxWidth: 620 }}>
-              An informational software tool. Not financial advice, and not a recommendation to buy or sell anything.
+              IronSight AI is an AI model and momentum scanner. Its analytics are AI-generated and can be wrong — informational only, not financial advice, and not a recommendation to buy or sell any security.
             </p>
           </div>
         </div>
@@ -661,7 +661,7 @@ export default function ClearPathConsulting() {
                   See IronSight AI &rarr;
                 </a>
                 <p style={{ fontSize: '0.78rem', color: '#475569', margin: 0, maxWidth: 420, lineHeight: 1.6 }}>
-                  An informational software tool. Not financial advice, not a recommendation to buy or sell anything.
+                  IronSight AI is an AI model and momentum scanner. Its analytics are AI-generated and can be wrong — informational only, not financial advice, and not a recommendation to buy or sell any security.
                 </p>
               </div>
             </div>
@@ -764,14 +764,14 @@ export default function ClearPathConsulting() {
                 Include the rough shape of the problem and I&apos;ll tell you honestly whether it&apos;s worth building.
               </p>
               <a
-                href="mailto:Support@ClearPathAutomation.IO?subject=ClearPath%20Automation%20%E2%80%94%20project%20inquiry"
+                href="mailto:support@clearpathautomation.io?subject=ClearPath%20Automation%20%E2%80%94%20project%20inquiry"
                 className="cp-btn-primary"
                 style={{ textDecoration: 'none', display: 'inline-block' }}
               >
                 Email ClearPath &rarr;
               </a>
               <p style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: '0.8rem', color: '#475569', margin: '24px 0 0' }}>
-                Support@ClearPathAutomation.IO
+                support@clearpathautomation.io
               </p>
             </div>
           </div>

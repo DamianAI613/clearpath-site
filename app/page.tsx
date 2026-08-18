@@ -588,11 +588,6 @@ export default function ClearPathConsulting() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 5, marginBottom: 24 }}>
                 {project.metrics.map((m, j) => <div key={j} className="cp-metric">{m}</div>)}
               </div>
-              {'link' in project && project.link && (
-                <a href={project.link as string} target="_blank" rel="noopener noreferrer" className="cp-link">
-                  View live ↗
-                </a>
-              )}
             </div>
           </div>
         </div>

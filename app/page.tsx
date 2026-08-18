@@ -70,17 +70,16 @@ const PROJECTS = [
   {
     title: 'IronSight AI — Market Analytics Platform',
     category: 'ML / Data Platform',
-    tagline: 'AI Model + Server + Momentum analytics software — machine-learning research with a live subscriber dashboard.',
-    description: 'An end-to-end analytics platform built solo. A Python engine ingests real-time market data, runs models trained on years of historical sessions, and publishes directional model output at fixed time horizons to a Next.js dashboard that updates live for subscribers. Every prediction is graded automatically against the outcome once the session closes, and the results are published in full — hits and misses. It is a software product, not an advisory service: it reports what the model sees. It does not give financial advice, does not recommend trades, and does not manage anyone’s money.',
-    tech: ['Python', 'scikit-learn', 'Next.js 16', 'Supabase Realtime', 'Stripe', 'Vercel'],
+    tagline: 'AI Model + Server + Momentum analytics software — a private, in-house machine-learning research build.',
+    description: 'An end-to-end analytics platform built solo. A Python engine ingests real-time market data, runs models trained on years of historical sessions, and publishes directional model output at fixed time horizons to a Next.js dashboard. Every prediction is graded automatically against the outcome once the session closes. The platform is private and operated in-house — it is not a public service, is not open for signup, and has no subscribers. It appears here as an engineering case study only.',
+    tech: ['Python', 'scikit-learn', 'Next.js 16', 'Supabase Realtime', 'Vercel'],
     metrics: [
       'Real-time market data ingestion',
       'Model output streamed to the browser in realtime',
-      'Automated accuracy grading at fixed horizons, published un-cherry-picked',
-      'Tiered Stripe subscriptions with a gated dashboard',
+      'Automated accuracy grading at fixed horizons',
+      'Operated privately in-house — not a public or commercial service',
       'AI model + momentum scanner — AI-generated analytics, informational only, not financial advice',
     ],
-    link: 'https://ironsightai.net',
     featured: true,
   },
   {
@@ -370,7 +369,7 @@ export default function ClearPathConsulting() {
       <div id="flagship" style={{ padding: '24px 24px 40px' }}>
         <div className="cp-section">
           <p style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: '0.75rem', color: '#6366F1', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 14, fontWeight: 600 }}>
-            Flagship Build
+            Flagship Build · Private
           </p>
           <div className="cp-flagship">
             <div style={{ display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap', position: 'relative' }}>
@@ -379,35 +378,32 @@ export default function ClearPathConsulting() {
                 IronSight AI
               </span>
               <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: '0.68rem', letterSpacing: '0.18em', color: '#A5B4FC', border: '1px solid rgba(99,102,241,0.35)', padding: '4px 10px', borderRadius: 100 }}>
-                LOCKED ON TARGET
+                PRIVATE — NOT PUBLIC
               </span>
             </div>
             <h2 style={{ fontSize: '2.1rem', fontWeight: 800, color: '#FAFAFA', letterSpacing: '-0.025em', margin: '20px 0 0', position: 'relative' }}>
               The market&apos;s open bell, <span style={{ color: '#6366F1' }}>read by an AI.</span>
             </h2>
             <p style={{ fontSize: '1rem', color: '#94A3B8', lineHeight: 1.8, margin: '14px 0 0', maxWidth: 660, position: 'relative' }}>
-              IronSight AI is ClearPath&apos;s flagship product — an end-to-end market-analytics platform built entirely in-house. A Python machine-learning engine ingests real-time market data, recognizes setups against years of historical sessions, and publishes a directional read at fixed time horizons to a live Next.js dashboard. Every call is graded automatically once the session closes and published in full — hits and misses, un-cherry-picked. It is a software product, not an advisory service: it reports what the model sees.
+              IronSight AI is ClearPath&apos;s flagship in-house build — an end-to-end market-analytics platform developed entirely solo. A Python machine-learning engine ingests real-time market data, recognizes setups against years of historical sessions, and publishes a directional read at fixed time horizons to a Next.js dashboard. Every call is graded automatically once the session closes. The platform is private and run in-house: it is not a public service, is not open for signup, and is not available to the public. It is shown here as an engineering case study.
             </p>
             <div style={{ margin: '22px 0 0', position: 'relative' }}>
-              {['Python', 'scikit-learn', 'Next.js 16', 'Supabase Realtime', 'Stripe', 'Vercel'].map(t => (
+              {['Python', 'scikit-learn', 'Next.js 16', 'Supabase Realtime', 'Vercel'].map(t => (
                 <span key={t} className="cp-tech">{t}</span>
               ))}
             </div>
             <div className="cp-flag-facts" style={{ display: 'flex', flexWrap: 'wrap', gap: 30, margin: '26px 0 0', position: 'relative' }}>
-              <div><div className="cp-flag-fact-n">Live</div><div className="cp-flag-fact-l">real-time subscriber dashboard</div></div>
-              <div><div className="cp-flag-fact-n">Graded</div><div className="cp-flag-fact-l">every call, hits & misses public</div></div>
+              <div><div className="cp-flag-fact-n">Private</div><div className="cp-flag-fact-l">operated in-house, not public</div></div>
+              <div><div className="cp-flag-fact-n">Graded</div><div className="cp-flag-fact-l">every call scored automatically</div></div>
               <div><div className="cp-flag-fact-n">Months</div><div className="cp-flag-fact-l">of historical training data</div></div>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap', margin: '30px 0 0', position: 'relative' }}>
-              <a href="https://ironsightai.net" target="_blank" rel="noopener noreferrer" className="cp-btn-primary" style={{ textDecoration: 'none' }}>
-                Visit ironsightai.net →
-              </a>
-              <a href="#work" className="cp-btn-secondary">
+              <a href="#work" className="cp-btn-primary" style={{ textDecoration: 'none' }}>
                 How it was built
               </a>
             </div>
             <p style={{ fontSize: '0.72rem', color: '#475569', margin: '20px 0 0', position: 'relative', lineHeight: 1.6, maxWidth: 620 }}>
-              IronSight AI is an AI model and momentum scanner. Its analytics are AI-generated and can be wrong — informational only, not financial advice, and not a recommendation to buy or sell any security.
+              IronSight AI is a private, in-house AI model and momentum scanner. It is not a public product and is not available to sign up for. Its analytics are AI-generated and can be wrong — informational only, not financial advice, and not a recommendation to buy or sell any security.
             </p>
           </div>
         </div>
@@ -614,13 +610,13 @@ export default function ClearPathConsulting() {
             See it in action
           </h2>
           <p style={{ fontSize: '1rem', color: '#64748B', margin: '0 0 40px', maxWidth: 520, lineHeight: 1.7 }}>
-            Real software, built end to end. Some of it is live, some of it was retired — the walkthroughs are unchanged either way.
+            Real software, built end to end. Some of it is live, some retired, some private — the walkthroughs are unchanged either way.
           </p>
 
           {/* Tabs */}
           <div style={{ display: 'flex', gap: 8, marginBottom: 28, flexWrap: 'wrap' }}>
             {[
-              { id: 5, label: '📈 IronSight AI' },
+              { id: 5, label: '📈 IronSight AI (private)' },
               { id: 0, label: '🤖 AI Research Agent' },
               { id: 1, label: '🏢 BookIT — Business (retired)' },
               { id: 2, label: '👤 BookIT — Client (retired)' },
@@ -647,7 +643,7 @@ export default function ClearPathConsulting() {
           {activeDemo === 5 && (
             <div className="cp-fade">
               <p style={{ fontSize: '0.9rem', color: '#64748B', marginBottom: 20, lineHeight: 1.7, maxWidth: 620 }}>
-                The IronSight AI board: the model&apos;s directional read on each ticker at fixed 15/30/60-minute horizons, then graded HIT or MISS against what actually happened. Built end to end — Python engine, real-time pipeline, live subscriber dashboard.
+                The IronSight AI board: the model&apos;s directional read on each ticker at fixed 15/30/60-minute horizons, then graded HIT or MISS against what actually happened. Built end to end — Python engine, real-time pipeline, live dashboard. A static screenshot of a private in-house tool; the platform itself is not publicly accessible.
               </p>
               <div style={{ borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(99,102,241,0.25)', background: '#000', boxShadow: '0 0 60px rgba(99,102,241,0.1)' }}>
                 <img
@@ -657,11 +653,8 @@ export default function ClearPathConsulting() {
                 />
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginTop: 24, flexWrap: 'wrap' }}>
-                <a href="https://ironsightai.net" target="_blank" rel="noopener noreferrer" className="cp-btn-primary" style={{ textDecoration: 'none' }}>
-                  See IronSight AI &rarr;
-                </a>
                 <p style={{ fontSize: '0.78rem', color: '#475569', margin: 0, maxWidth: 420, lineHeight: 1.6 }}>
-                  IronSight AI is an AI model and momentum scanner. Its analytics are AI-generated and can be wrong — informational only, not financial advice, and not a recommendation to buy or sell any security.
+                  IronSight AI is a private, in-house AI model and momentum scanner. It is not a public product and is not available to sign up for. Its analytics are AI-generated and can be wrong — informational only, not financial advice, and not a recommendation to buy or sell any security.
                 </p>
               </div>
             </div>

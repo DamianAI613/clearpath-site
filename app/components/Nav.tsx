@@ -18,7 +18,12 @@ export default function Nav() {
     <nav className="cp-nav">
       <div className="cp-nav-inner">
         <Link href="/" className="cp-brand">
-          ClearPath Automation
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/clearpath-mark.svg" alt="" width={30} height={30} style={{ display: 'block', borderRadius: 8, flexShrink: 0 }} />
+          <span className="cp-wordmark">
+            <span style={{ color: '#FAFAFA' }}>ClearPath</span>{' '}
+            <span style={{ color: 'var(--cp-accent)' }}>Automation</span>
+          </span>
         </Link>
         <div className="cp-nav-links">
           {LINKS.map(l => (

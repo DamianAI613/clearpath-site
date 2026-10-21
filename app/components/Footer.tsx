@@ -11,13 +11,18 @@ export default function Footer() {
           style={{ display: 'flex', flexWrap: 'wrap', gap: 28, justifyContent: 'space-between' }}
         >
           <div style={{ maxWidth: 340 }}>
-            <p
-              style={{
-                fontFamily: 'var(--cp-mono)', fontSize: '0.8rem', color: 'var(--cp-accent)',
-                fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', margin: '0 0 10px',
-              }}
-            >
-              {SITE.name}
+            <p style={{ display: 'inline-flex', alignItems: 'center', gap: 9, margin: '0 0 12px' }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/clearpath-mark.svg" alt="" width={26} height={26} style={{ display: 'block', borderRadius: 7, flexShrink: 0 }} />
+              <span
+                style={{
+                  fontFamily: 'var(--cp-mono)', fontSize: '0.8rem', fontWeight: 700,
+                  letterSpacing: '0.08em', textTransform: 'uppercase',
+                }}
+              >
+                <span style={{ color: '#FAFAFA' }}>ClearPath</span>{' '}
+                <span style={{ color: 'var(--cp-accent)' }}>Automation</span>
+              </span>
             </p>
             <p style={{ fontSize: '0.82rem', color: 'var(--cp-faint)', lineHeight: 1.7, margin: 0 }}>
               Custom automation, AI agents and purpose-built software. Engineered by a licensed

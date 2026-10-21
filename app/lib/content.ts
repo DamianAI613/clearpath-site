@@ -10,7 +10,7 @@ export const SITE = {
   name: 'ClearPath Automation',
   legal: 'ClearPath Automation LLC',
   domain: 'clearpathautomation.io',
-  email: 'damianwroblewski2016@gmail.com',
+  email: 'support@clearpathautomation.io',
   location: 'Carpentersville, IL',
   tagline: 'Where inefficiency meets its match.',
   blurb:
@@ -95,7 +95,7 @@ export const SERVICES: Service[] = [
     title: 'Machine Learning & Data Platforms',
     tagline: 'Pipelines built so a wrong answer is caught before it ships, not after.',
     body:
-      'I built and operate an autonomous ML platform where a bad model costs real money, so the discipline is not optional: strictly time-ordered splits, a sealed test set, and a verification harness that refuses to promote a model whose live accuracy does not reproduce its test accuracy.',
+      'I built and operate a private in-house ML platform end to end, which is where this discipline comes from: strictly time-ordered splits, a sealed test set, and a verification harness that refuses to promote a model whose live accuracy does not reproduce its test accuracy. Most ML work fails on evaluation long before it fails on modelling.',
     bullets: [
       'Gradient-boosted ensembles - XGBoost, LightGBM, HistGradientBoosting',
       'Time-ordered train/validation/sealed-test splits; purged cross-validation',
@@ -154,6 +154,23 @@ export const SERVICES: Service[] = [
     tech: ['Python', 'Windows Task Scheduler', 'cron', 'Vercel', 'Cloudflare', 'Git'],
   },
 ]
+
+/* -- Employer phrasing ------------------------------------------------- */
+
+export const NAME_EMPLOYER: string | null = null
+
+/** How identifying the employer phrasing is. 'ranked' says Fortune 20, which
+ *  combined with "prior authorization" and a ~60-pharmacist UM team is close to
+ *  identifying; 'generic' matches the de-identified wording used before. */
+const EMPLOYER_SPECIFICITY: 'ranked' | 'generic' = 'ranked'
+
+const RANKED = EMPLOYER_SPECIFICITY === 'ranked'
+
+export const EMPLOYER =
+  NAME_EMPLOYER ?? (RANKED ? 'a Fortune 20 health company' : 'a large national health company')
+
+/** Same thing in adjective position, e.g. "deployed inside X". */
+export const EMPLOYER_ENV = NAME_EMPLOYER ?? (RANKED ? 'a Fortune 20 enterprise' : 'a large enterprise')
 
 /* -- Projects ---------------------------------------------------------- */
 
@@ -222,7 +239,7 @@ export const PROJECTS: Project[] = [
     ],
     tech: ['Python', 'Playwright', 'Chrome DevTools Protocol', 'openpyxl', 'PyInstaller', 'SharePoint'],
     note:
-      'Built inside a Fortune 20 health company and actively deployed, so it cannot be publicly demonstrated. De-identified throughout; no client data leaves the environment.',
+      `Built inside ${EMPLOYER} and actively deployed, so it cannot be publicly demonstrated. De-identified throughout; no client data leaves the environment.`,
   },
   {
     slug: 'pahub-helper',
@@ -244,7 +261,7 @@ export const PROJECTS: Project[] = [
       {
         heading: 'Three tabs, three friction points',
         body:
-          'DecisionFlow Builder converts the structured Excel criteria and question sets into an interactive, color-coded HTML flowchart with approval and denial branches rendered explicitly - one click, a file you can open in any browser. QPath is a clipboard questionnaire builder for assembling the question set quickly. PathLogic Mapper is a real-time conditional-logic navigator that highlights the live decision path as the reviewer moves through it.',
+          'DecisionFlow Builder converts the structured Excel criteria and question sets into an interactive, color-coded HTML flowchart with approval and denial branches rendered explicitly - one click, a file you can open in any browser. QuickClip Pro (QPath) is an auto-advancing clipboard tool with global keyboard detection, for assembling a question set without leaving the case. PathLogic Mapper is a real-time conditional-logic navigator that highlights the live decision path as the reviewer moves through it.',
       },
       {
         heading: 'Why desktop and why HTML',
@@ -254,7 +271,7 @@ export const PROJECTS: Project[] = [
     ],
     highlights: [
       'DecisionFlow Builder - one-click interactive HTML decision trees from Excel criteria',
-      'QPath - clipboard questionnaire builder for rapid question-set assembly',
+      'QuickClip Pro / QPath - auto-advancing clipboard automation with global keyboard detection, for rapid question-set assembly',
       'PathLogic Mapper - live color-coded conditional-logic path visualizer',
       'Handles complex specialty-drug criteria with explicit approval/denial logic',
       'Zero external dependencies on the end-user side',
@@ -262,7 +279,7 @@ export const PROJECTS: Project[] = [
     tech: ['Python', 'tkinter', 'openpyxl', 'HTML/JS', 'Excel parsing'],
     video: '/ToolsVideoFinal.mp4',
     note:
-      'Actively deployed inside a Fortune 20 enterprise environment; the walkthrough shows the tools, not live case data.',
+      `Actively deployed inside ${EMPLOYER_ENV} environment; the walkthrough shows the tools, not live case data.`,
   },
   {
     slug: 'clinical-evidence-navigator',
@@ -344,61 +361,53 @@ export const PROJECTS: Project[] = [
     slug: 'ironsight-ai',
     title: 'IronSight AI',
     short: 'IronSight AI',
-    category: 'ML platform',
+    category: 'ML / data platform',
     group: 'ML & Data',
     status: 'Private case study',
     featured: true,
-    tagline: 'An autonomous machine-learning analytics platform. ~93 programs, ~31,000 lines, built and operated solo.',
+    tagline: 'A private, in-house machine-learning analytics platform. Roughly 93 programs and 31,000 lines, built and operated solo.',
     summary:
-      'A complete ML platform designed, built and operated alone: live data ingestion, a resumable training pipeline producing gradient-boosted ensembles, a verification harness that refuses to promote a model whose live accuracy does not reproduce its test accuracy, same-day grading of every prediction, and watchdog-supervised services that recover from their own failures.',
+      'An end-to-end analytics platform designed, built and operated alone: real-time data ingestion, a resumable training pipeline, a verification step that refuses to promote a model whose live accuracy does not reproduce its test accuracy, same-day grading of every prediction, and watchdog-supervised services that recover from their own failures. The platform is private and run in-house \u2014 it is not a public service, is not open for signup and has no subscribers. It appears here as an engineering case study only.',
     sections: [
       {
-        heading: 'What it is',
+        heading: 'What it is, and what is deliberately not here',
         body:
-          'An end-to-end machine-learning analytics platform operated as a separate LLC. Roughly 93 Python programs and 31,000 lines, every one of them mine. The model design is proprietary and stays that way. The engineering below is the part worth hiring for, and it is the reason this project is on this site.',
+          'A private in-house machine-learning analytics platform, roughly 93 Python programs and 31,000 lines, every one of them mine. What follows is the engineering: the pipeline shape, the verification discipline and the reliability work. The model design, the inputs it reads and the method behind it are proprietary and are not described on this site \u2014 the point of showing this project is how it was engineered, not what it concluded.',
       },
       {
-        heading: 'Data layer',
+        heading: 'Pipeline',
         body:
-          'Live market data over a single WebSocket feed with an in-memory cache and a REST fallback for any gap the socket misses. Broker integration over OAuth with token lifecycle handling. A local API server exposes lookup, options, price and event endpoints to the rest of the system, so nothing downstream talks to a vendor directly.',
+          'Real-time data ingestion with an in-memory cache and a fallback path for anything the primary route misses, feeding a local service layer so nothing downstream reaches a vendor directly. The training pipeline produces ensembled models with strictly time-ordered train, validation and sealed-test splits. It is resumable, so a long run survives an interruption, degrades gracefully when a dependency is unavailable rather than failing outright, handles missing values natively instead of imputing data that was never there, and versions every artifact it saves.',
       },
       {
-        heading: 'Training pipeline',
+        heading: 'Verification before serving \u2014 the part I would argue for in any ML system',
         body:
-          'Gradient-boosted ensembles - XGBoost, LightGBM and HistGradientBoosting, averaged - with strictly time-ordered train, validation and sealed-test splits. Resumable, so a long run survives an interruption. Degrades gracefully when a library is unavailable rather than failing the whole pipeline. Native handling of missing values instead of imputation that invents data. Models saved in native formats, versioned.',
+          'A separate harness re-runs live inference against held-out data and refuses to promote a model whose live accuracy does not reproduce its test accuracy. This catches the failure that quietly kills machine learning in production: a train-serve skew where the offline number is real and the online number is not. Paired with versioned artifacts and one-step rollback, it means a bad model cannot become the live model by default.',
       },
       {
-        heading: 'Verification before serving - the part I would argue for in any ML system',
+        heading: 'Honest measurement',
         body:
-          'A separate harness re-runs live inference against held-out data and refuses to promote a model whose live accuracy does not reproduce its test accuracy. This catches the failure that kills ML in production: a train-serve skew where the offline number is real and the online number is not. Paired with versioned artifacts and one-step rollback, it means a bad model cannot quietly become the live model.',
-      },
-      {
-        heading: 'Grading, published in full',
-        body:
-          'Every prediction is graded the same day it resolves and published to a board - hits and misses both, un-cherry-picked. Validation work on the feature set used purged cross-validation with an embargo after a single time-split was shown to be over-optimistic, and a candidate feature was killed outright once per-group leakage was found in it. Honest measurement is the whole discipline.',
+          'Every prediction is graded the same day it resolves, and the record is kept in full rather than curated \u2014 misses included. The validation methodology was rebuilt once a single hold-out split proved over-optimistic, and a candidate input was dropped outright when leakage was found in it. Being willing to throw away a feature that flattered the numbers is the whole discipline, and it is the habit I bring to evaluating anyone else\u2019s model.',
       },
       {
         heading: 'Reliability engineering',
         body:
-          'Atomic state writes - serialize, temp file, fsync, re-parse, replace - so a crash mid-write cannot corrupt state. A watchdog that detects process death, heartbeat stalls and stale output, with a restart-storm guard so a crash loop cannot become an outage. Dated arming flags on anything that acts, manual-override detection, time-based flattening, and a hold flag. Single-order webhook payloads with dry-run gating, so the default state of the system is to do nothing.',
+          'Atomic state writes \u2014 serialize, temp file, fsync, re-parse, replace \u2014 so a crash mid-write cannot corrupt state. A watchdog that detects process death, heartbeat stalls and stale output, with a restart-storm guard so a crash loop cannot become an outage. Structured logging throughout, and a safe default: the system does nothing unless explicitly enabled for the day, so the failure mode of every guard is inaction rather than a wrong action.',
       },
     ],
     highlights: [
       '~93 Python programs, ~31,000 lines, designed and operated solo',
-      'WebSocket ingestion with in-memory cache and REST fallback; OAuth broker integration',
-      'Gradient-boosted ensembles with time-ordered splits and a sealed test set',
+      'Real-time ingestion with caching and a fallback path; local service layer in front of it',
+      'Time-ordered train/validation/sealed-test splits; resumable, versioned artifacts',
       'Verification harness blocks promotion on train-serve skew; one-step rollback',
-      'Purged cross-validation with embargo; a leaking feature found and killed',
-      'Same-day grading published in full - hits and misses',
-      'Atomic writes, watchdog with restart-storm guard, dry-run-by-default gating',
+      'Same-day grading of every prediction, kept in full rather than curated',
+      'Atomic writes, watchdog with restart-storm guard, safe-by-default gating',
+      'Private and operated in-house \u2014 not a public or commercial service',
     ],
-    tech: [
-      'Python', 'scikit-learn', 'XGBoost', 'LightGBM', 'pandas', 'NumPy',
-      'Next.js', 'Supabase', 'PostgreSQL', 'Vercel', 'WebSocket', 'OAuth',
-    ],
+    tech: ['Python', 'scikit-learn', 'Next.js 16', 'Supabase Realtime', 'Vercel'],
     image: '/ironsight-board.png',
     note:
-      'Operated as a separate LLC and kept deliberately private - the product is offline and not publicly available, and the model design is proprietary. What is shared here is the architecture and the engineering discipline behind it, not the strategy.',
+      'Private in-house build, shown as an engineering case study. Not a public service, not open for signup, no subscribers, and no outbound link \u2014 the platform is not publicly accessible. The model design, its inputs and its method are proprietary and are not described here. AI-generated analytics, informational only; nothing on this page is financial advice.',
   },
   {
     slug: 'bookit',
@@ -577,18 +586,12 @@ export const PROJECTS: Project[] = [
 /* -- The enterprise clinical programme -------------------------------- *
  * The flagship body of work. Eight production tools shipped in 2026 for the
  * ~60-pharmacist utilization-management team; four of them are documented as
- * case studies above. The employer is a Fortune 20 health company and is
- * deliberately not named here - set NAME_EMPLOYER to a string to change that
- * in one place if that ever becomes the right call.
+ * case studies above. Employer phrasing comes from EMPLOYER / EMPLOYER_ENV.
  */
-
-export const NAME_EMPLOYER: string | null = null
-
-export const EMPLOYER = NAME_EMPLOYER ?? 'a Fortune 20 health company'
 
 export const CLINICAL = {
   eyebrow: 'Flagship work',
-  title: 'Eight production tools inside a Fortune 20 health company',
+  title: `Eight production tools inside ${EMPLOYER}`,
   lede:
     'The largest body of work on this site, and the reason the clinical-AI service line exists. In 2026 I shipped eight AI and automation tools for the roughly 60-pharmacist utilization-management team I work on — built for the workflow I do myself, every day.',
   loop:
@@ -672,7 +675,7 @@ export const DEMOS = [
     label: 'IronSight AI board',
     icon: '\u{1F4C8}',
     blurb:
-      'The ML platform board: directional model output at fixed 15, 30 and 60-minute horizons, each graded HIT or MISS against what actually happened. Shown as a private engineering case study - the platform itself is offline and not publicly available.',
+      'The board from the platform: a directional read at fixed 15, 30 and 60-minute horizons, each graded HIT or MISS against what actually happened. A static screenshot of a private in-house tool \u2014 the platform itself is not publicly accessible. Informational only, not financial advice.',
     image: '/ironsight-board.png',
   },
   {
@@ -703,7 +706,7 @@ export const BIO = {
   paras: [
     'Nine years of pharmacy practice across retail, mail-order, specialty, home-infusion and payer prior-authorization settings - the last five as a prior-authorization and clinical-review pharmacist at a Fortune 20 health company, reviewing complex cases across every disease state on both pharmacy and medical benefits.',
     'In 2026 I shipped eight production AI and automation tools for the roughly 60-pharmacist utilization-management team I work on. Separately, I have been part of the small hand-picked clinician group behind that company’s AI-enhanced review platform since its first draft in 2025 - brought on site for a week-long working session to give input on the initial design, then kept on through the pilot that evaluated AI-generated clinical guidance case by case against source criteria, logged defects and failure modes back to the product team, and delivered the team-wide training for launch. I am in the pilot group for the current agentic release.',
-    'Alongside that I independently built and operate an autonomous machine-learning platform - roughly 93 Python programs and 31,000 lines, solo - with the evaluation and reliability discipline of a system where a wrong answer costs money.',
+    'Alongside that I independently built and operate a private in-house machine-learning analytics platform - roughly 93 Python programs and 31,000 lines, solo - which is where the evaluation and reliability discipline on this site comes from. It is not a public service and is shown only as an engineering case study.',
     'ClearPath Automation is where that combination is for hire. Building with LLMs since 2024; everything in production shipped in 2026.',
   ],
   why: [
@@ -737,7 +740,7 @@ export const BIO = {
   ],
   history: [
     { years: '2021 - present', role: 'Clinical Pharmacist, Prior Authorization & Clinical Review', org: `${EMPLOYER} (remote)` },
-    { years: '2026 - present', role: 'Founder, sole engineer - autonomous ML analytics platform', org: 'IronSight AI LLC' },
+    { years: '2026 - present', role: 'Founder, sole engineer - private in-house ML analytics platform', org: 'IronSight AI LLC' },
     { years: '2025 - present', role: 'Founder', org: 'ClearPath Automation LLC' },
     { years: '2025 - 2026', role: 'Founder - scheduling SaaS (retired)', org: 'BookIT' },
     { years: '2020 - 2021', role: 'Home Infusion Pharmacist', org: 'CVS Specialty' },

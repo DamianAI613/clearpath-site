@@ -96,9 +96,12 @@ a { color: inherit; }
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
 }
 .cp-brand {
-  font-family: var(--cp-mono); font-size: 0.85rem; font-weight: 700;
-  color: var(--cp-accent); letter-spacing: 0.1em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 10px;
   text-decoration: none; white-space: nowrap;
+}
+.cp-wordmark {
+  font-family: var(--cp-mono); font-size: 0.85rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
 }
 .cp-nav-links { display: flex; gap: 26px; align-items: center; }
 .cp-nav-link {
@@ -258,7 +261,8 @@ a { color: inherit; }
 @media (max-width: 560px) {
   .cp-h1 { font-size: 2rem; }
   .cp-grid-3, .cp-grid-4 { grid-template-columns: 1fr; }
-  .cp-brand { font-size: 0.72rem; letter-spacing: 0.06em; }
+  .cp-wordmark { font-size: 0.7rem; letter-spacing: 0.04em; }
+  .cp-brand { gap: 7px; }
   .cp-nav-links { gap: 11px; }
   .cp-nav-link { font-size: 0.72rem; }
 }

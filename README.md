@@ -41,10 +41,18 @@ from the CV rather than written per-page.
    actively deployed inside a Fortune 20 health company. The site says "a Fortune 20 health
    company" throughout. If that ever needs to change, set `NAME_EMPLOYER` in `app/lib/content.ts`
    to a string - it is read through the `EMPLOYER` export and nothing else hardcodes it.
-2. **IronSight AI has no outbound link.** The platform is offline and not publicly available, and
-   the model design is proprietary. It is presented as a private engineering case study: the
-   architecture and reliability work, not the strategy. Do not re-add a link to `ironsightai.net`
-   (it returns HTTP 503). The previous version of this site linked to it twice.
+2. **IronSight AI: private, no outbound link, method and data source obscured.** Set on
+   2026-08-17 (commits `db27eda`..`f0fddc7`) and preserved deliberately. The copy says it is
+   private, in-house, not a public service, not open for signup and has no subscribers. The model
+   design, its inputs and its method are **not described** - no data sources, no broker, no model
+   library names, and nothing about an execution layer. Its `tech` list is capped at
+   `Python, scikit-learn, Next.js 16, Supabase Realtime, Vercel`, and the copy carries an
+   AI-generated / informational-only / not-financial-advice line. Do not re-add a link to
+   `ironsightai.net` (it returns HTTP 503), and do not reinstate method detail from the CV - the CV
+   is a private document for employers and says more than this site should.
+3. **Contact is `support@clearpathautomation.io`**, not a personal Gmail. Set 2026-08-17.
+4. **Brand lockup is `public/clearpath-mark.svg`** plus a two-tone wordmark - white "ClearPath",
+   indigo "Automation" - in both `Nav` and `Footer`.
 
 Contact is a plain `mailto:` link. The old Resend-backed contact form was removed on 2026-07-14:
 Resend's free tier allows exactly one verified sending domain, and `ironsightai.net` holds it.

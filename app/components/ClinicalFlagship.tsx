@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { CLINICAL, PROJECTS } from '../lib/content'
+import { CLINICAL, PROJECTS, EMPLOYER_ENV } from '../lib/content'
 import { StatusBadge } from './ui'
 
 const CLINICAL_SLUGS = ['onepa-doc-alert', 'pahub-helper', 'clinical-evidence-navigator', 'bulk-workflow-automation']
@@ -90,8 +90,8 @@ export default function ClinicalFlagship() {
         </div>
 
         <p className="cp-note" style={{ marginTop: 26 }}>
-          These tools are actively deployed inside a Fortune 20 enterprise environment, so they
-          cannot be fully demonstrated in public and the employer is not named here. De-identified
+          These tools are actively deployed inside {EMPLOYER_ENV} environment, so they cannot be
+          fully demonstrated in public and the employer is not named here. De-identified
           throughout; no client data leaves the environment.
         </p>
       </div>

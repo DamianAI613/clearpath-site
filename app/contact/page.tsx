@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { SITE } from '../lib/content'
+import ContactForm from '../components/ContactForm'
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -29,20 +30,11 @@ export default function ContactPage() {
             say so rather than quote it.
           </p>
 
-          <div className="cp-card" style={{ padding: '36px 30px', textAlign: 'center' }}>
-            <a
-              href={`mailto:${SITE.email}?subject=ClearPath%20Automation%20%E2%80%94%20project%20inquiry`}
-              className="cp-btn-primary"
-            >
-              Email ClearPath &rarr;
-            </a>
-            <p style={{ fontFamily: 'var(--cp-mono)', fontSize: '0.85rem', color: 'var(--cp-muted)', margin: '22px 0 0' }}>
-              {SITE.email}
-            </p>
-            <p style={{ fontSize: '0.8rem', color: 'var(--cp-faint)', margin: '10px 0 0' }}>
-              {SITE.legal} &middot; {SITE.location} &middot; remote across the US
-            </p>
-          </div>
+          <ContactForm />
+
+          <p className="cp-hint" style={{ marginTop: 16, textAlign: 'center' }}>
+            {SITE.legal} &middot; {SITE.location} &middot; remote across the US
+          </p>
         </div>
       </section>
 

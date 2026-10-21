@@ -70,7 +70,7 @@ export default function Footer() {
         </div>
 
         <div className="cp-section" style={{ marginTop: 36, paddingTop: 22, borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-          <p style={{ fontSize: '0.75rem', color: '#1E293B', margin: 0 }}>
+          <p style={{ fontSize: '0.78rem', color: '#6B7A90', margin: 0 }}>
             &copy; {new Date().getFullYear()} {SITE.legal} &middot; {SITE.location}
           </p>
         </div>

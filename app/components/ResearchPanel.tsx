@@ -42,7 +42,7 @@ export default function ResearchPanel() {
                   <p style={{ fontSize: '0.89rem', color: 'var(--cp-text)', margin: '0 0 13px', lineHeight: 1.6, fontWeight: 500 }}>
                     {desc}
                   </p>
-                  <p style={{ fontSize: '0.71rem', color: '#334155', margin: 0, fontFamily: 'var(--cp-mono)' }}>
+                  <p style={{ fontSize: '0.71rem', color: '#6B7A90', margin: 0, fontFamily: 'var(--cp-mono)' }}>
                     Source: {source}
                   </p>
                 </div>

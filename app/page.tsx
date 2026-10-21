@@ -3,6 +3,7 @@ import { SITE, CREDS, SERVICES, FEATURED, PROJECTS } from './lib/content'
 import { SectionHead, ProjectCard, StatusBadge } from './components/ui'
 import ResearchPanel from './components/ResearchPanel'
 import ClinicalFlagship from './components/ClinicalFlagship'
+import ContactForm from './components/ContactForm'
 
 export default function Home() {
   return (
@@ -158,21 +159,7 @@ export default function Home() {
           <p style={{ fontSize: '1rem', color: 'var(--cp-dim)', lineHeight: 1.75, margin: '0 auto 32px', maxWidth: 500 }}>
             Describe what you are trying to automate or build. I reply within one business day.
           </p>
-          <div className="cp-card" style={{ padding: '38px 28px' }}>
-            <p style={{ fontSize: '0.94rem', color: 'var(--cp-muted)', margin: '0 0 26px', lineHeight: 1.8 }}>
-              Include the rough shape of the problem and I will tell you honestly whether it is
-              worth building.
-            </p>
-            <a
-              href={`mailto:${SITE.email}?subject=ClearPath%20Automation%20%E2%80%94%20project%20inquiry`}
-              className="cp-btn-primary"
-            >
-              Email ClearPath &rarr;
-            </a>
-            <p style={{ fontFamily: 'var(--cp-mono)', fontSize: '0.8rem', color: 'var(--cp-faint)', margin: '22px 0 0' }}>
-              {SITE.email}
-            </p>
-          </div>
+          <ContactForm />
         </div>
       </section>
     </>

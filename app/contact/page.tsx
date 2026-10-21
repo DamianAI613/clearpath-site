@@ -30,7 +30,7 @@ export default function ContactPage() {
             say so rather than quote it.
           </p>
 
-          <ContactForm />
+          <ContactForm enabled={Boolean(process.env.RESEND_API_KEY)} />
 
           <p className="cp-hint" style={{ marginTop: 16, textAlign: 'center' }}>
             {SITE.legal} &middot; {SITE.location} &middot; remote across the US

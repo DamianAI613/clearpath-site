@@ -159,7 +159,7 @@ export default function Home() {
           <p style={{ fontSize: '1rem', color: 'var(--cp-dim)', lineHeight: 1.75, margin: '0 auto 32px', maxWidth: 500 }}>
             Describe what you are trying to automate or build. I reply within one business day.
           </p>
-          <ContactForm />
+          <ContactForm enabled={Boolean(process.env.RESEND_API_KEY)} />
         </div>
       </section>
     </>

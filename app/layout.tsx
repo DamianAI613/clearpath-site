@@ -6,7 +6,7 @@ import { SITE } from './lib/content'
 
 export const metadata: Metadata = {
   title: {
-    default: 'ClearPath Automation — Custom automation, AI agents and purpose-built software',
+    default: 'ClearPath Automation — AI systems, automation and purpose-built software',
     template: '%s — ClearPath Automation',
   },
   description: SITE.blurb,

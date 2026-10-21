@@ -35,12 +35,12 @@ export default function Home() {
           </h1>
 
           <p style={{ fontSize: '1.12rem', color: 'var(--cp-dim)', maxWidth: 620, margin: '0 auto 16px', lineHeight: 1.75 }}>
-            Custom automation, AI agents and purpose-built software that take manual work off your
-            team permanently.
+            AI systems, machine-learning pipelines and workflow automation &mdash; built, verified and
+            shipped to production.
           </p>
-          <p style={{ fontSize: '0.95rem', color: 'var(--cp-faint)', maxWidth: 560, margin: '0 auto 38px', lineHeight: 1.75 }}>
-            Built by a licensed clinical pharmacist who writes the code &mdash; so there is no
-            handoff between the person who understands the requirement and the person who ships it.
+          <p style={{ fontSize: '0.95rem', color: 'var(--cp-faint)', maxWidth: 580, margin: '0 auto 38px', lineHeight: 1.75 }}>
+            Agents with real evaluation behind them. Pipelines that are verified before they serve.
+            Automation on the legacy platforms that have no API.
           </p>
 
           <div className="cp-ctas" style={{ display: 'flex', gap: 13, justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -73,40 +73,6 @@ export default function Home() {
       </section>
 
       <hr className="cp-divider" />
-
-      {/* -- The differentiator ---------------------------------------- */}
-      <section style={{ padding: '72px 24px' }}>
-        <div className="cp-section">
-          <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr)', gap: 0 }}>
-            <p className="cp-eyebrow">Why ClearPath</p>
-            <h2 className="cp-h2" style={{ maxWidth: 760 }}>
-              Most automation shops cannot staff the hard part.
-            </h2>
-            <p className="cp-body" style={{ maxWidth: 680, fontSize: '1.02rem' }}>
-              Automation projects rarely fail on the code. They fail in the gap between the person
-              who understands what the work actually requires and the person implementing it &mdash;
-              a gap that gets wider the more specialized the domain.
-            </p>
-            <p className="cp-body" style={{ maxWidth: 680, fontSize: '1.02rem' }}>
-              I close that gap by being both. I am a practicing clinical pharmacist with nine years
-              in the field, five of them doing prior-authorization and utilization-management review
-              at a Fortune 20 health company. I also built the eight AI and automation tools my own
-              clinical team uses every day, and I have sat in the hand-picked clinician group behind
-              that company&apos;s AI-enhanced review platform since its first draft &mdash; evaluating
-              AI-generated clinical guidance case by case against source criteria and logging the
-              failure modes back to the product team.
-            </p>
-            <p className="cp-body" style={{ maxWidth: 680, fontSize: '1.02rem' }}>
-              That is the discipline I bring to any build, clinical or not: state the requirement,
-              define the measure, grade the output honestly, and make the system notice its own
-              failures.
-            </p>
-            <div style={{ marginTop: 10 }}>
-              <Link href="/about" className="cp-link">More about the background &rarr;</Link>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* -- Flagship clinical programme ------------------------------- */}
       <ClinicalFlagship />

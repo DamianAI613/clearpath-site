@@ -23,6 +23,7 @@ export default function ClinicalFlagship() {
         <h2 className="cp-h2" style={{ maxWidth: 820 }}>{CLINICAL.title}</h2>
         <p className="cp-body" style={{ maxWidth: 700, fontSize: '1.02rem' }}>{CLINICAL.lede}</p>
         <p className="cp-body" style={{ maxWidth: 700 }}>{CLINICAL.loop}</p>
+        <p className="cp-note" style={{ maxWidth: 700, marginTop: 4 }}>{CLINICAL.usage}</p>
 
         {/* Pillars */}
         <div className="cp-grid-2" style={{ marginTop: 34 }}>

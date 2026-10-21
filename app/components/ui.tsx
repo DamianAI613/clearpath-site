@@ -5,6 +5,7 @@ import type { Project } from '../lib/content'
 
 const TONE: Record<Project['status'], string> = {
   'In daily use': 'live',
+  'In regular use': 'active',
   'Active': 'active',
   'Demoed': 'demo',
   'Private case study': 'private',

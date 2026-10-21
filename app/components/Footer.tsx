@@ -25,8 +25,8 @@ export default function Footer() {
               </span>
             </p>
             <p style={{ fontSize: '0.82rem', color: 'var(--cp-faint)', lineHeight: 1.7, margin: 0 }}>
-              Custom automation, AI agents and purpose-built software. Engineered by a licensed
-              clinical pharmacist who writes the code.
+              AI systems, machine-learning pipelines and workflow automation, built and shipped
+              to production.
             </p>
           </div>
 

@@ -14,7 +14,7 @@ export const SITE = {
   location: 'Carpentersville, IL',
   tagline: 'Where inefficiency meets its match.',
   blurb:
-    'Custom automation, AI agents and purpose-built software - engineered by a clinical pharmacist who writes the code. ClearPath builds the systems that take manual work off your team permanently.',
+    'AI systems, workflow automation and purpose-built software, built and shipped to production. Agents with real evaluation behind them, machine-learning pipelines that are verified before they serve, and automation on the legacy platforms that have no API.',
   linkedin: 'https://linkedin.com/in/damianwroblewski88',
   github: 'https://github.com/DamianAI613',
 }
@@ -22,10 +22,10 @@ export const SITE = {
 /* -- Credentials strip ------------------------------------------------- */
 
 export const CREDS = [
-  { value: 'PharmD · MHA', label: 'Doctor of Pharmacy, M.S. Health Administration' },
-  { value: '9 yrs', label: 'Clinical pharmacy practice, 5 in payer utilization management' },
-  { value: '8 tools', label: 'Production AI and automation tools shipped for a 60-pharmacist team' },
-  { value: '~31k lines', label: 'Across ~93 Python programs on the ML platform, built solo' },
+  { value: '8', label: 'AI and automation tools shipped to production inside a large enterprise' },
+  { value: '20+', label: 'Releases on the flagship tool, v1 through v6.2' },
+  { value: '~31k', label: 'Lines across ~93 Python programs on the ML platform, built solo' },
+  { value: '10', label: 'Projects documented as case studies on this site' },
 ]
 
 /* -- Services ---------------------------------------------------------- */
@@ -41,22 +41,6 @@ export type Service = {
 }
 
 export const SERVICES: Service[] = [
-  {
-    slug: 'clinical-ai',
-    icon: '⚕️',
-    title: 'Healthcare & Clinical AI',
-    tagline: 'The part most automation shops cannot staff: a licensed clinician who ships code.',
-    body:
-      'I am a practicing clinical pharmacist. I have spent five years doing prior-authorization and utilization-management review, and I build the AI tools my own clinical team uses. That means I can read the chart, write the rubric and ship the software - without a translation layer between the clinical requirement and the implementation.',
-    bullets: [
-      'Decision-support tooling that sits beside a live case-review workflow',
-      'Criteria, step-therapy and question-set logic rendered as something a reviewer can read',
-      'Retrieval-grounded clinical assistants that answer with citations, not vibes',
-      'Evaluation rubrics for probabilistic systems - golden references, failure-mode logs, case-by-case grading',
-      'De-identified by design; the clinician stays the decision-maker in every tool',
-    ],
-    tech: ['Python', 'Playwright/CDP', 'Flask', 'LLM APIs', 'Retrieval', 'PHI-aware design'],
-  },
   {
     slug: 'ai-agents',
     icon: '\u{1F916}',
@@ -74,22 +58,6 @@ export const SERVICES: Service[] = [
     tech: ['Claude API', 'OpenAI API', 'Prompt engineering (certified)', 'RAG', 'Agent SDK', 'Evals'],
   },
   {
-    slug: 'workflow-automation',
-    icon: '⚙️',
-    title: 'Workflow & Browser Automation',
-    tagline: 'Including the legacy platforms everyone else says cannot be automated.',
-    body:
-      'The expensive manual work is usually trapped in a system with no API. I automate those: frame-aware browser control over the Chrome DevTools Protocol, postback-safe waits on legacy ASP.NET platforms, error recovery, and a CSV audit trail so compliance can see exactly what ran.',
-    bullets: [
-      'Browser automation via Playwright over the Chrome DevTools Protocol',
-      'Legacy enterprise web apps - iframe-aware scraping, postback handling, recovery',
-      'Desktop automation, clipboard tooling and global hotkeys (tkinter, pynput)',
-      'Zapier and Make pipelines where a hosted tool is genuinely the right answer',
-      'Audit logging, retry logic and straight-through processing with a paper trail',
-    ],
-    tech: ['Playwright', 'CDP', 'Python', 'tkinter', 'pynput', 'Zapier', 'Make', 'PyInstaller'],
-  },
-  {
     slug: 'ml-data',
     icon: '\u{1F4C8}',
     title: 'Machine Learning & Data Platforms',
@@ -104,6 +72,22 @@ export const SERVICES: Service[] = [
       'Live ingestion over WebSocket with in-memory cache and REST fallback',
     ],
     tech: ['Python', 'scikit-learn', 'XGBoost', 'LightGBM', 'pandas', 'NumPy', 'WebSocket'],
+  },
+  {
+    slug: 'workflow-automation',
+    icon: '⚙️',
+    title: 'Workflow & Browser Automation',
+    tagline: 'Including the legacy platforms everyone else says cannot be automated.',
+    body:
+      'The expensive manual work is usually trapped in a system with no API. I automate those: frame-aware browser control over the Chrome DevTools Protocol, postback-safe waits on legacy ASP.NET platforms, error recovery, and a CSV audit trail so compliance can see exactly what ran.',
+    bullets: [
+      'Browser automation via Playwright over the Chrome DevTools Protocol',
+      'Legacy enterprise web apps - iframe-aware scraping, postback handling, recovery',
+      'Desktop automation, clipboard tooling and global hotkeys (tkinter, pynput)',
+      'Zapier and Make pipelines where a hosted tool is genuinely the right answer',
+      'Audit logging, retry logic and straight-through processing with a paper trail',
+    ],
+    tech: ['Playwright', 'CDP', 'Python', 'tkinter', 'pynput', 'Zapier', 'Make', 'PyInstaller'],
   },
   {
     slug: 'full-stack',
@@ -153,6 +137,22 @@ export const SERVICES: Service[] = [
     ],
     tech: ['Python', 'Windows Task Scheduler', 'cron', 'Vercel', 'Cloudflare', 'Git'],
   },
+  {
+    slug: 'clinical-ai',
+    icon: '\u2695\ufe0f',
+    title: 'Healthcare & Clinical Tooling',
+    tagline: 'A domain I already have the context for, so the requirement does not need translating.',
+    body:
+      'Most of the production tooling on this site was built for a clinical utilization-management workflow, which means the regulated-environment constraints are familiar: PHI handling, audit trails, de-identified design, and tooling that supports a reviewer\u2019s decision rather than making one. I hold a PharmD and work in that workflow, which is how the domain access happened \u2014 the engineering is the service being offered.',
+    bullets: [
+      'Decision-support tooling that attaches to a live case-review workflow',
+      'Criteria, step-therapy and question-set logic rendered as something a reviewer can read',
+      'Retrieval-grounded clinical assistants that answer with citations, not recall',
+      'Evaluation rubrics for probabilistic systems in regulated settings',
+      'De-identified by design; audit trails where compliance needs them',
+    ],
+    tech: ['Python', 'Playwright/CDP', 'Flask', 'LLM APIs', 'Retrieval', 'PHI-aware design'],
+  },
 ]
 
 /* -- Employer phrasing ------------------------------------------------- */
@@ -180,7 +180,7 @@ export type Project = {
   short: string
   category: string
   group: 'Healthcare AI' | 'ML & Data' | 'Products & SaaS' | 'Automation'
-  status: 'In daily use' | 'Active' | 'Demoed' | 'Retired' | 'Private case study'
+  status: 'In daily use' | 'In regular use' | 'Active' | 'Demoed' | 'Retired' | 'Private case study'
   featured: boolean
   tagline: string
   /** The one-paragraph version, used on cards and the work index. */
@@ -247,7 +247,7 @@ export const PROJECTS: Project[] = [
     short: 'PAHub Helper',
     category: 'Clinical tooling',
     group: 'Healthcare AI',
-    status: 'In daily use',
+    status: 'In regular use',
     featured: true,
     tagline: 'Three tools in one desktop app: DecisionFlow, QPath and PathLogic Mapper.',
     summary:
@@ -275,6 +275,7 @@ export const PROJECTS: Project[] = [
       'PathLogic Mapper - live color-coded conditional-logic path visualizer',
       'Handles complex specialty-drug criteria with explicit approval/denial logic',
       'Zero external dependencies on the end-user side',
+      'Used weekly to monthly by a small group, not deployed team-wide',
     ],
     tech: ['Python', 'tkinter', 'openpyxl', 'HTML/JS', 'Excel parsing'],
     video: '/ToolsVideoFinal.mp4',
@@ -325,7 +326,7 @@ export const PROJECTS: Project[] = [
     short: 'Bulk Automation',
     category: 'Enterprise RPA',
     group: 'Automation',
-    status: 'In daily use',
+    status: 'In regular use',
     featured: false,
     tagline: 'Straight-through processing on a legacy platform with no API, and an audit trail.',
     summary:
@@ -353,6 +354,7 @@ export const PROJECTS: Project[] = [
       'Error recovery that returns to a known state instead of aborting mid-run',
       'CSV audit logging of every action, target and outcome for compliance',
       'Straight-through processing on steps that were fully manual',
+      'Run weekly to monthly against batches, not continuously',
     ],
     tech: ['Python', 'Playwright', 'Chrome DevTools Protocol', 'CSV audit logging'],
     note: 'Internal enterprise tool; not publicly demonstrable.',
@@ -591,45 +593,47 @@ export const PROJECTS: Project[] = [
 
 export const CLINICAL = {
   eyebrow: 'Flagship work',
-  title: `Eight production tools inside ${EMPLOYER}`,
+  title: 'Eight production tools inside a large enterprise',
   lede:
-    'The largest body of work on this site, and the reason the clinical-AI service line exists. In 2026 I shipped eight AI and automation tools for the roughly 60-pharmacist utilization-management team I work on — built for the workflow I do myself, every day.',
+    'The largest body of work on this site. Eight AI and automation tools shipped in 2026 into a clinical utilization-management workflow \u2014 built, packaged, documented and supported through 20+ releases on the flagship alone.',
   loop:
-    'Every one of them followed the same loop: observe the workflow, define the requirement and the measure, prototype in a week, validate against live cases with the reviewers who would use it, harden it, document it, train the team, then iterate from their feedback.',
+    'Each one followed the same loop: observe the workflow, define the requirement and the measure, prototype in a week, validate against live cases with the people who would use it, harden it, document it, train the users, then iterate from their feedback.',
+  usage:
+    'Reach differs by tool and is stated plainly rather than rounded up. OnePA Doc Alert is the only one deployed to the whole team \u2014 roughly 60 pharmacists use it daily. PAHub Helper and the bulk automation are used weekly to monthly, by me and a small group. The rest are single-operator or small-group tools.',
   pillars: [
     {
       heading: 'Built from inside the workflow',
       body:
-        'I am not a vendor who interviewed the team. I am on the team. Every requirement came from a case I had worked myself, which is why adoption did not need to be sold.',
+        'Every requirement came from a case worked first-hand rather than from a requirements document, which is why the verdict states and the edge cases match what actually comes up.',
     },
     {
-      heading: 'The clinician stays the decision-maker',
+      heading: 'The reviewer stays the decision-maker',
       body:
-        'No tool makes a determination. Each one removes the lookup, the navigation or the transcription and surfaces the signal that drove its guidance, so the pharmacist can check the reasoning rather than trust the output.',
+        'No tool makes a determination. Each removes a lookup, a navigation step or a transcription, and surfaces the signal that drove its guidance so the reasoning can be checked rather than trusted.',
     },
     {
       heading: 'De-identified by design',
       body:
-        'No client data leaves the environment. PHI handling is daily practice, not a compliance afterthought, and the tooling was designed around that constraint from the first prototype.',
+        'No client data leaves the environment. PHI handling shaped the architecture from the first prototype rather than being retrofitted.',
     },
     {
-      heading: 'Shipped, documented, trained',
+      heading: 'Packaged, documented, supported',
       body:
-        'Twenty-plus releases on the flagship tool alone, distributed from a team library with first-run self-setup. Rollout emails, installation guides, user guides, banner references and SOPs all written by me, with the team training delivered by me.',
+        'Distributed from a team library with first-run self-setup and no auto-sync dependency. Installation guide, user guide, banner reference and SOP written alongside the code; regressions fixed from user reports within days; changelog kept in the file.',
     },
   ],
   alsoBuilt: [
-    'Clipboard questionnaire tooling with global hotkey capture for rapid question-set assembly',
+    'Auto-advancing clipboard automation with global keyboard detection for rapid question-set assembly',
     'Real-time conditional-logic navigation that highlights the live decision path through branching criteria',
-    'Excel-to-interactive-HTML conversion for complex specialty-drug approval and denial logic',
-    'Criteria indexing across ~100,000 workbook rows, resolved in seconds at the point of review',
+    'Excel-to-interactive-HTML conversion for complex approval and denial logic',
+    'Criteria indexing across ~100,000 workbook rows, resolved in seconds at the point of use',
   ],
   pilot: {
-    heading: 'And separately: the clinician side of an enterprise AI platform',
+    heading: 'Evaluation work on an enterprise AI platform',
     paras: [
-      'Since March 2025 I have been one of a small hand-picked group of clinicians working on that company\u2019s AI-enhanced review platform. I was brought on site for a week-long working session to give input on the first draft of the platform and its clinical criteria companion, before it was a product.',
-      'Through the pilot that followed I evaluated AI-generated clinical guidance case by case against the source criteria, logged defects and failure modes back to the product team, delivered the team-wide training for the launch, and presented automation strategy to executives. I am in the pilot group for the current agentic release, which moves beyond LLM processing of chart documents to agent-driven review steps.',
-      'I also worked with the implementation team that authors criteria and question sets, and on the mapping of where those elements land in the reviewer\u2019s workflow \u2014 the clinical voice on how a build actually behaves at the desk.',
+      'Separately from the tools above: since March 2025 I have been part of a small group evaluating an enterprise AI review platform, starting with a week-long working session on its first draft before it was a product.',
+      'The work is evaluation engineering \u2014 grading AI-generated guidance case by case against source criteria, logging defects and failure modes back to the product team, and building the training material for launch. I am in the pilot group for the current agentic release, which moves beyond LLM processing of documents to agent-driven steps.',
+      'It is the same discipline as the verification harness on the ML platform: decide what correct means, measure against it, and report the failures rather than the wins.',
     ],
     certs: ['Enterprise Prompt Engineering certification', 'Enterprise GenAI Generalist certification'],
   },
@@ -699,54 +703,28 @@ export const DEMOS = [
 /* -- About ------------------------------------------------------------- */
 
 export const BIO = {
-  name: 'Damian Wroblewski, PharmD, MHA',
-  role: 'Founder, ClearPath Automation LLC',
+  name: 'Damian Wroblewski',
+  role: 'AI & automation engineer \u00b7 Founder, ClearPath Automation LLC',
   lede:
-    'A licensed clinical pharmacist who became the engineer building the AI tools his own clinical team uses.',
+    'I build AI systems, machine-learning pipelines and automation, and I ship them to production.',
   paras: [
-    'Nine years of pharmacy practice across retail, mail-order, specialty, home-infusion and payer prior-authorization settings - the last five as a prior-authorization and clinical-review pharmacist at a Fortune 20 health company, reviewing complex cases across every disease state on both pharmacy and medical benefits.',
-    'In 2026 I shipped eight production AI and automation tools for the roughly 60-pharmacist utilization-management team I work on. Separately, I have been part of the small hand-picked clinician group behind that company’s AI-enhanced review platform since its first draft in 2025 - brought on site for a week-long working session to give input on the initial design, then kept on through the pilot that evaluated AI-generated clinical guidance case by case against source criteria, logged defects and failure modes back to the product team, and delivered the team-wide training for launch. I am in the pilot group for the current agentic release.',
-    'Alongside that I independently built and operate a private in-house machine-learning analytics platform - roughly 93 Python programs and 31,000 lines, solo - which is where the evaluation and reliability discipline on this site comes from. It is not a public service and is shown only as an engineering case study.',
-    'ClearPath Automation is where that combination is for hire. Building with LLMs since 2024; everything in production shipped in 2026.',
-  ],
-  why: [
-    {
-      heading: 'A clinician who ships the code',
-      body:
-        'Most healthcare AI projects lose something in the handoff between the people who understand the clinical requirement and the people who implement it. I am both, so there is no handoff. I can read the chart, write the evaluation rubric and ship the software.',
-    },
-    {
-      heading: 'Evaluation is the deliverable',
-      body:
-        'Anyone can demo an AI feature. The question is how you know it is right, and what happens when it is not. Golden references, failure-mode logging, case-by-case grading, and a stated escalation path - that discipline is what I was hired into a clinical AI pilot group to provide, and it is what I bring to a build.',
-    },
-    {
-      heading: 'Built to be left alone',
-      body:
-        'An automation that fails silently is worse than none, because you trust it. Atomic writes, watchdogs, restart-storm guards, versioned artifacts with one-step rollback, structured logs. You should be able to stop thinking about it.',
-    },
-    {
-      heading: 'Honest about what did not work',
-      body:
-        'BookIT is on this site as retired, because it is. A portfolio that only shows wins tells you nothing about judgment. I will tell you honestly whether a thing is worth building before I quote it.',
-    },
+    'In 2026 I designed, built, packaged and supported eight AI and automation tools inside a large enterprise, carrying the flagship through 20+ releases across six major versions \u2014 browser automation over the Chrome DevTools Protocol against a platform with no API, a criteria index resolving ~100,000 workbook rows in seconds, and desktop tooling that compiles branching logic into interactive HTML.',
+    'Independently I built and operate a private in-house machine-learning analytics platform: roughly 93 Python programs and 31,000 lines, solo. Resumable training pipelines, time-ordered splits with a sealed test set, a verification harness that blocks promotion on train-serve skew, atomic state writes, and watchdog-supervised services with restart-storm guards.',
+    'Before that I shipped a full scheduling SaaS end to end \u2014 auth, role-based dashboards, Stripe billing, Twilio notifications, a React Native client \u2014 and retired it when the business case did not hold.',
+    'My route into this was unusual: I am a licensed pharmacist and the enterprise tooling above was built for the workflow I work in, which is how I got the domain access and the regulated-environment constraints. The engineering is what I do now and what I am offering. Building with LLMs since 2024; everything in production shipped in 2026.',
   ],
   credentials: [
-    'Doctor of Pharmacy (PharmD) and M.S. Health Administration (MHA) - Rosalind Franklin University of Medicine and Science, 2016',
-    'B.S. Chemistry, biochemistry emphasis - Northern Illinois University, 2012',
+    'Enterprise Prompt Engineering certification \u00b7 Enterprise GenAI Generalist certification',
+    'Doctor of Pharmacy (PharmD) and M.S. Health Administration (MHA) \u2014 Rosalind Franklin University, 2016',
+    'B.S. Chemistry, biochemistry emphasis \u2014 Northern Illinois University, 2012',
     'Illinois Pharmacist License, active',
-    'Enterprise Prompt Engineering certification',
-    'Enterprise GenAI Generalist certification',
   ],
   history: [
-    { years: '2021 - present', role: 'Clinical Pharmacist, Prior Authorization & Clinical Review', org: `${EMPLOYER} (remote)` },
     { years: '2026 - present', role: 'Founder, sole engineer - private in-house ML analytics platform', org: 'IronSight AI LLC' },
-    { years: '2025 - present', role: 'Founder', org: 'ClearPath Automation LLC' },
-    { years: '2025 - 2026', role: 'Founder - scheduling SaaS (retired)', org: 'BookIT' },
-    { years: '2020 - 2021', role: 'Home Infusion Pharmacist', org: 'CVS Specialty' },
-    { years: '2018 - 2020', role: 'Specialty Pharmacist - pulmonary, transplant, cardiovascular', org: 'Specialty pharmacy within the same health group; one continuous role across a merger' },
-    { years: '2017 - 2018', role: 'Mail-Order Dermatology Pharmacist', org: 'GenRx' },
-    { years: '2017', role: 'Retail Pharmacist', org: 'Jewel-Osco' },
+    { years: '2025 - present', role: 'Founder - custom software, automation and AI agents', org: 'ClearPath Automation LLC' },
+    { years: '2025 - 2026', role: 'Founder, sole engineer - scheduling SaaS (retired)', org: 'BookIT' },
+    { years: '2021 - present', role: 'Clinical pharmacist, prior authorization and clinical review - and builder of the team\u2019s internal AI tooling', org: `${EMPLOYER} (remote)` },
+    { years: '2017 - 2021', role: 'Pharmacist - specialty, home infusion, mail order and retail', org: 'CVS Specialty, a national specialty pharmacy, GenRx, Jewel-Osco' },
   ],
 }
 

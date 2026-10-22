@@ -458,19 +458,29 @@ export const PROJECTS: Project[] = [
     group: 'Products & SaaS',
     status: 'Active',
     featured: false,
-    tagline: 'A free digital business card platform with a zero-backend fallback path.',
+    tagline: 'A free digital business card platform with a zero-backend fallback path. Live.',
     summary:
-      'A digital business card builder where a published card has two independent homes: a row in Postgres behind a clean shortlink, or the entire card LZ-compressed into the URL fragment itself. If the database is down, misconfigured or missing its environment variables, publishing silently falls back to the long link and the user still gets a working card.',
+      'A digital business card builder where a published card has two independent homes: a row in Postgres behind a clean shortlink, or the entire card LZ-compressed into the URL fragment itself. If the database is down, misconfigured or missing its environment variables, publishing silently falls back to the long link and the user still gets a working card. Live at card.clearpathautomation.io.',
     sections: [
       {
         heading: 'The interesting constraint',
         body:
-          'A business card has to work forever. That is a hard promise for anything database-backed, so the product was designed so that nothing about it hard-depends on the database. A card is a plain JSON object with two storage paths: a Supabase row behind a short link, which gives clean URLs, real Open Graph previews and a view counter - or the same JSON LZ-compressed into a URL fragment, which needs no database, no row and no server, and keeps working regardless.',
+          'A business card has to keep working and it has to be correctable, and those requirements pull against each other. So a card is a plain JSON object with two storage paths: a Postgres row behind a short link, which gives clean URLs, real Open Graph previews, a view counter and editing in place - or the same JSON LZ-compressed into a URL fragment, which needs no database, no row and no server, and keeps working regardless. The fragment card cannot be edited, because it has no row to update; the stored card can. Nothing about the product hard-depends on the database.',
       },
       {
         heading: 'Graceful degradation as a feature',
         body:
-          'If Supabase is unreachable or unconfigured, publish does not error - it falls back to the fragment path and hands the user a longer link that works permanently. Photos are downscaled to 320px and inlined as data URLs, so a card is fully self-contained with no external image dependency. This is the same instinct as the REST fallback behind the ML platform ingestion: assume the dependency will fail, and decide now what happens when it does.',
+          'If the database is unreachable or unconfigured, publish does not error - it falls back to the fragment path and hands the user a longer link that works permanently, and says which one it gave them. Photos are downscaled to 320px and inlined as data URLs, so a card is fully self-contained with no external image dependency. This is the same instinct as the REST fallback behind the ML platform ingestion: assume the dependency will fail, and decide now what happens when it does.',
+      },
+      {
+        heading: 'Choosing the database on its failure mode',
+        body:
+          'The obvious managed Postgres pauses a project after roughly seven quiet days and needs a human to click Resume in a dashboard. For a tool whose promise is that a link keeps working, that is the exact failure it exists to prevent - a card nobody opens for a fortnight would quietly stop resolving. The storage is Neon instead, which scales compute to zero when idle and wakes itself on the next query in a few hundred milliseconds. Same price, same Postgres; the difference is whether recovery needs a person.',
+      },
+      {
+        heading: 'Editing is a capability, not an account',
+        body:
+          'The product promises no signup, so editing cannot depend on a login. Publishing returns a secret token and stores only its SHA-256, compared in constant time; whoever holds the edit link may rewrite or delete that card and nobody else can, and a wrong token is indistinguishable from a card that does not exist, so the endpoint cannot be used to discover which cards are real. The token travels in the URL fragment, which browsers never transmit, so it reaches the server only on the request that spends it.',
       },
       {
         heading: 'Three jobs, one codebase',
@@ -481,11 +491,13 @@ export const PROJECTS: Project[] = [
     highlights: [
       'Dual storage - Postgres shortlink or the whole card LZ-compressed into the URL fragment',
       'Publishing degrades gracefully to a database-free path instead of failing',
+      'Edit and delete in place: the link already handed out shows the new version',
+      'Capability-based auth - hashed edit tokens, constant-time compare, no accounts',
       'Server-rendered published cards with per-card Open Graph tags',
       'Photos downscaled to 320px and inlined as data URLs - fully self-contained cards',
-      'Token-based edit links; 4-step builder with a live phone preview; PWA manifest',
+      'Every text colour measured at 4.5:1 or better against the background',
     ],
-    tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase', 'PostgreSQL', 'LZ compression', 'PWA'],
+    tech: ['Next.js 16', 'React 19', 'TypeScript', 'Neon Postgres', 'LZ compression', 'PWA'],
   },
   {
     slug: 'custom-gpt-suite',

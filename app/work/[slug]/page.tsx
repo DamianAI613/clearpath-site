@@ -54,6 +54,20 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
             {p.summary}
           </p>
 
+          {/* Almost everything here is behind a client's firewall. When a
+            * project can actually be opened, say so loudly. */}
+          {p.link && (
+            <a
+              className="cp-btn-primary"
+              href={p.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ marginBottom: 34 }}
+            >
+              {p.linkLabel ?? 'View live'} ↗
+            </a>
+          )}
+
           {p.note && <p className="cp-note" style={{ marginBottom: 34 }}>{p.note}</p>}
 
           {/* Media */}

@@ -36,6 +36,18 @@ export default function Nav() {
               {l.label}
             </Link>
           ))}
+          {/* The free thing, on every page. It is the cheapest possible
+            * demonstration of what this shop builds: the visitor gets a
+            * working product in two minutes and the footer of every card
+            * they hand out says who made it. */}
+          <a
+            className="cp-nav-cta"
+            href="https://card.clearpathautomation.io/new"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Get My Free Card
+          </a>
         </div>
       </div>
     </nav>

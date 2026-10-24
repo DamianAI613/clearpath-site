@@ -110,6 +110,14 @@ a { color: inherit; }
 }
 .cp-nav-link:hover, .cp-nav-link[data-active='true'] { color: var(--cp-head); }
 
+.cp-nav-cta {
+  font-size: 0.82rem; font-weight: 650; white-space: nowrap; text-decoration: none;
+  color: var(--cp-accent-light); background: var(--cp-accent-soft);
+  border: 1px solid rgba(99, 102, 241, 0.35); border-radius: 8px; padding: 7px 13px;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+.cp-nav-cta:hover { color: #fff; background: var(--cp-accent); border-color: var(--cp-accent); }
+
 /* -- Buttons & links --------------------------------------------------- */
 
 .cp-btn-primary {
@@ -254,6 +262,7 @@ a { color: inherit; }
   .cp-section, .cp-narrow { padding: 0 16px; }
   .cp-nav-links { gap: 14px; }
   .cp-nav-link { font-size: 0.78rem; }
+  .cp-nav-cta { font-size: 0.74rem; padding: 6px 10px; }
   .cp-ctas { flex-direction: column; align-items: stretch; }
   .cp-ctas > * { text-align: center; }
 }
@@ -265,6 +274,9 @@ a { color: inherit; }
   .cp-brand { gap: 7px; }
   .cp-nav-links { gap: 11px; }
   .cp-nav-link { font-size: 0.72rem; }
+  /* On the narrowest phones five links plus a button do not fit, and the
+   * button is the one thing here that is also reachable from the hero. */
+  .cp-nav-cta { display: none; }
 }
 
 /* -- Form controls ----------------------------------------------------- */

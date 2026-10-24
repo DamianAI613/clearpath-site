@@ -193,6 +193,10 @@ export type Project = {
   video?: string
   image?: string
   note?: string
+  /** A public URL, for the rare project that is not behind a client's
+   * firewall. Optional, and most of these never will have one. */
+  link?: string
+  linkLabel?: string
 }
 
 export const PROJECTS: Project[] = [
@@ -457,8 +461,10 @@ export const PROJECTS: Project[] = [
     category: 'Product / lead-gen tool',
     group: 'Products & SaaS',
     status: 'Active',
-    featured: false,
-    tagline: 'A free digital business card platform with a zero-backend fallback path. Live.',
+    featured: true,
+    link: 'https://card.clearpathautomation.io/new',
+    linkLabel: 'Make one yourself — free',
+    tagline: 'A free digital business card platform with a zero-backend fallback path. Live, and the only project here you can open.',
     summary:
       'A digital business card builder where a published card has two independent homes: a row in Postgres behind a clean shortlink, or the entire card LZ-compressed into the URL fragment itself. If the database is down, misconfigured or missing its environment variables, publishing silently falls back to the long link and the user still gets a working card. Live at card.clearpathautomation.io.',
     sections: [
@@ -483,21 +489,34 @@ export const PROJECTS: Project[] = [
           'The product promises no signup, so editing cannot depend on a login. Publishing returns a secret token and stores only its SHA-256, compared in constant time; whoever holds the edit link may rewrite or delete that card and nobody else can, and a wrong token is indistinguishable from a card that does not exist, so the endpoint cannot be used to discover which cards are real. The token travels in the URL fragment, which browsers never transmit, so it reaches the server only on the request that spends it.',
       },
       {
+        heading: 'Recovery without an account',
+        body:
+          'Capability tokens have one failure that matters: the token lives in one browser, so clearing it or changing phones freezes the card forever. The answer is a four-digit PIN chosen at publish. Four digits is 10,000 guesses, so two things make it safe enough - five wrong attempts lock that card for fifteen minutes, and the stored form is PBKDF2 at 150,000 iterations with a per-card salt, so a leaked table costs real compute per card rather than one rainbow table for all of them. A correct PIN mints a new token and retires the old one, which also revokes the device that was lost.',
+      },
+      {
+        heading: 'One screen, measured rather than assumed',
+        body:
+          'The brief was that a recipient sees everything without scrolling. The first version met that for the cards I happened to test; a card with a long name, four credentials and seven links ran 175px past the fold on a small Android, because nothing in the layout could see how much card there was. It now lays out against the small-viewport height unit rather than the one iOS Safari inflates by about 100px, trims the least load-bearing lines on short screens, and measures what is left and scales it with a floor - past which the card scrolls rather than becoming unreadable, and if the reader has enlarged their system text no scaling happens at all. Verified across eight viewports and three card weights: 23 of 24 combinations fit exactly.',
+      },
+      {
         heading: 'Three jobs, one codebase',
         body:
-          'The landing page shows a prospect what ClearPath can build. The builder at /new is a genuinely free tool, with every free card carrying a "Built with ClearPath Cards" footer. And one card is mine - a permanent shareable link for an email signature. A demo, a lead-gen funnel and a real product in the same deployment.',
+          'The landing page shows a prospect what ClearPath can build. The builder at /new is a genuinely free tool, and every card handed to a stranger carries a "Build your own card" button and a line pointing back here - so the product markets itself to exactly the people already holding it. A private dashboard counts what actually happens: cards made, cards edited twice, contacts saved, and the taps that cross from a free card into a conversation. A demo, a lead-gen funnel and a real product in the same deployment.',
       },
     ],
     highlights: [
       'Dual storage - Postgres shortlink or the whole card LZ-compressed into the URL fragment',
       'Publishing degrades gracefully to a database-free path instead of failing',
-      'Edit and delete in place: the link already handed out shows the new version',
       'Capability-based auth - hashed edit tokens, constant-time compare, no accounts',
-      'Server-rendered published cards with per-card Open Graph tags',
-      'Photos downscaled to 320px and inlined as data URLs - fully self-contained cards',
+      'PIN recovery: PBKDF2 at 150k iterations, per-card salt, five tries then a 15-minute lock',
+      'Chosen vanity links with live availability checking and a reserved-word list',
+      'Installs as a standalone app per card, with a generated icon and its own manifest',
+      'Offline-capable: network-first service worker, so the card opens with no signal',
+      'Fits one phone screen across 8 viewports and 3 card weights, measured not assumed',
+      'Private usage dashboard - views, contacts saved, shares, and taps into the funnel',
       'Every text colour measured at 4.5:1 or better against the background',
     ],
-    tech: ['Next.js 16', 'React 19', 'TypeScript', 'Neon Postgres', 'LZ compression', 'PWA'],
+    tech: ['Next.js 16', 'React 19', 'TypeScript', 'Neon Postgres', 'PBKDF2', 'LZ compression', 'PWA', 'Service worker'],
   },
   {
     slug: 'custom-gpt-suite',

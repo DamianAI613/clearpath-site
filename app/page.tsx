@@ -49,6 +49,23 @@ export default function Home() {
             <Link href="/work" className="cp-btn-secondary">See the work</Link>
           </div>
 
+          {/* Deliberately below the two real calls to action and in a
+            * quieter register: it is a free tool, not the business. It is
+            * here because the fastest way to show someone what gets built
+            * is to hand them something that works. */}
+          <p style={{ marginTop: 20, fontSize: '0.9rem', color: 'var(--cp-faint)' }}>
+            Not ready to talk?{' '}
+            <a
+              className="cp-link"
+              href="https://card.clearpathautomation.io/new"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Get my free digital business card &rarr;
+            </a>{' '}
+            &mdash; built here, free, no account.
+          </p>
+
           <div style={{ marginTop: 52, maxWidth: 820, marginInline: 'auto' }}>
             <div className="cp-media" style={{ borderRadius: 20, boxShadow: '0 0 80px rgba(99,102,241,0.15)' }}>
               <video controls playsInline preload="metadata" style={{ maxHeight: 460 }}>

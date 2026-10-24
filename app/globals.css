@@ -118,6 +118,18 @@ a { color: inherit; }
 }
 .cp-nav-cta:hover { color: #fff; background: var(--cp-accent); border-color: var(--cp-accent); }
 
+/* Outline sibling of cp-nav-cta. Every click on this one spends API credit,
+ * so it reads as an option rather than the call to action. */
+.cp-nav-cta2 {
+  font-size: 0.82rem; font-weight: 600; white-space: nowrap; text-decoration: none;
+  color: var(--cp-dim); background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 8px; padding: 7px 13px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.cp-nav-cta2:hover, .cp-nav-cta2[data-active='true'] {
+  color: var(--cp-head); border-color: rgba(255, 255, 255, 0.34);
+}
+
 /* -- Buttons & links --------------------------------------------------- */
 
 .cp-btn-primary {
@@ -263,6 +275,9 @@ a { color: inherit; }
   .cp-nav-links { gap: 14px; }
   .cp-nav-link { font-size: 0.78rem; }
   .cp-nav-cta { font-size: 0.74rem; padding: 6px 10px; }
+  /* Two buttons plus five links is already tight here; the paid demo is the
+   * one a phone visitor is least likely to want, so it goes first. */
+  .cp-nav-cta2 { display: none; }
   .cp-ctas { flex-direction: column; align-items: stretch; }
   .cp-ctas > * { text-align: center; }
 }

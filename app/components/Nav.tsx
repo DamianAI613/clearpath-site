@@ -40,6 +40,11 @@ export default function Nav() {
             * demonstration of what this shop builds: the visitor gets a
             * working product in two minutes and the footer of every card
             * they hand out says who made it. */}
+          {/* Secondary on purpose: this one costs money per click, so it
+            * should not compete with the free card for attention. */}
+          <Link href="/customGPT" className="cp-nav-cta2" data-active={path === '/customGPT'}>
+            Try Custom GPT
+          </Link>
           <a
             className="cp-nav-cta"
             href="https://card.clearpathautomation.io/new"

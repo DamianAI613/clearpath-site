@@ -48,10 +48,12 @@ async function claude(
       'anthropic-version': '2023-06-01',
       'content-type': 'application/json',
     },
+    /* No `temperature`: current models reject it as deprecated, with a 400.
+     * Determinism here comes from the prompt and from the fact that the
+     * model is summarising supplied text rather than generating freely. */
     body: JSON.stringify({
       model: MODEL,
       max_tokens: maxTokens,
-      temperature: 0.2,
       system,
       messages: [{ role: 'user', content: user }],
     }),
@@ -60,7 +62,19 @@ async function claude(
   if (!res.ok) {
     const detail = await res.text().catch(() => '')
     console.error('[customgpt] anthropic', res.status, detail.slice(0, 500))
-    throw new Error(`anthropic_${res.status}`)
+
+    /* Surface the upstream reason rather than asserting a cause. A 400 here
+     * is usually a bad request body, not a bad key, and an error message
+     * that guesses wrong sends whoever is debugging down the wrong path -
+     * which is exactly what happened the first time this shipped. The
+     * Anthropic error body carries no secrets. */
+    let reason = ''
+    try {
+      reason = JSON.parse(detail)?.error?.message ?? ''
+    } catch {
+      /* non-JSON body; the status alone will have to do */
+    }
+    throw new Error(`anthropic_${res.status}${reason ? `: ${reason}` : ''}`)
   }
 
   const j = await res.json()
@@ -258,12 +272,13 @@ export async function POST(req: Request) {
     const msg = e instanceof Error ? e.message : 'unknown'
     console.error('[customgpt] failed', msg)
     const upstream = msg.startsWith('anthropic_')
+    const reason = upstream ? msg.split(': ').slice(1).join(': ') : ''
     return Response.json(
       {
         ok: false,
         error: upstream ? 'llm_failed' : 'retrieval_failed',
         message: upstream
-          ? 'The model call failed. Check the API key and its credit balance.'
+          ? `The model call failed. ${reason || 'Check the API key and its credit balance.'}`
           : 'PubMed or ClinicalTrials.gov did not respond. Try again in a moment.',
       },
       { status: 502 },

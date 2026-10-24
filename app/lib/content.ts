@@ -306,7 +306,12 @@ export const PROJECTS: Project[] = [
       {
         heading: 'What it is for',
         body:
-          'Clinical-grade answers to therapy questions in seconds instead of hours - the kind of question that comes up mid-review and currently costs a reviewer a detour into three databases. Built as a Flask application with the retrieval layer and the synthesis layer kept deliberately separate, so the sourcing can be audited independently of the wording.',
+          'Clinical-grade answers to therapy questions in seconds instead of hours - the kind of question that comes up mid-review and currently costs a reviewer a detour into three databases. The retrieval layer and the synthesis layer are kept deliberately separate, so the sourcing can be audited independently of the wording.',
+      },
+      {
+        heading: 'Verification, not just instruction',
+        body:
+          'Telling a model to cite only what it was given is a request, not a guarantee, so the answer is checked before it is served: every PMID and NCT number is matched against the records actually retrieved, and anything that does not match is rewritten as unverified and counted on screen. This matters more than it sounds. A fabricated identifier is correctly formatted and often resolves to a real paper - just the wrong one - which makes it the hardest class of error for a reader to catch. The same pattern applies anywhere a system has to be right about an identifier: order numbers, claim IDs, part numbers.',
       },
       {
         heading: 'Where it stands',
@@ -317,12 +322,14 @@ export const PROJECTS: Project[] = [
     highlights: [
       'Live retrieval from PubMed and ClinicalTrials.gov - no recall from model memory',
       'Inline citations on every answer, auditable back to the source',
-      'Flask application with retrieval and synthesis layers kept separate',
+      'Every citation verified against the retrieved set before the answer is served',
       'Demonstrated to a senior director and upper management',
       'Deployment postponed; candidate for appeals-department use',
     ],
-    tech: ['Python', 'Flask', 'GPT-4', 'PubMed API', 'ClinicalTrials.gov API', 'RAG'],
+    tech: ['Next.js 16', 'TypeScript', 'Claude API', 'PubMed E-utilities', 'ClinicalTrials.gov v2', 'RAG'],
     video: '/DamiansCustomGPTdemo.mp4',
+    link: '/customGPT',
+    linkLabel: 'Open the live tool',
   },
   {
     slug: 'bulk-workflow-automation',

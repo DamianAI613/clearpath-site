@@ -118,8 +118,9 @@ a { color: inherit; }
 }
 .cp-nav-cta:hover { color: #fff; background: var(--cp-accent); border-color: var(--cp-accent); }
 
-/* Outline sibling of cp-nav-cta. Every click on this one spends API credit,
- * so it reads as an option rather than the call to action. */
+/* Outline sibling of cp-nav-cta, for a second nav button. Currently unused:
+ * the Try Custom GPT link was pulled from the nav. Kept because restoring it
+ * is one <Link>, and the paid-demo styling is already worked out. */
 .cp-nav-cta2 {
   font-size: 0.82rem; font-weight: 600; white-space: nowrap; text-decoration: none;
   color: var(--cp-dim); background: transparent;

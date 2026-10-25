@@ -26,10 +26,10 @@ export default function Nav() {
           </span>
         </Link>
         <div className="cp-nav-links">
-          {/* The free thing, on every page, and first in the row. It is the
-            * cheapest possible demonstration of what this shop builds: the
-            * visitor gets a working product in two minutes and the footer of
-            * every card they hand out says who made it. */}
+          {/* First in the row, so on a phone - where this row scrolls
+            * sideways - it is the one thing guaranteed to be on screen.
+            * It used to be last, which on a 390px screen meant it was
+            * never visible at all. */}
           <a
             className="cp-nav-cta"
             href="https://card.clearpathautomation.io/new"

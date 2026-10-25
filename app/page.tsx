@@ -9,7 +9,14 @@ export default function Home() {
   return (
     <>
       {/* -- Hero ------------------------------------------------------- */}
-      <section style={{ position: 'relative', padding: '96px 24px 76px', textAlign: 'center', overflow: 'hidden' }}>
+      {/* 96px of nothing above the fold is a luxury a 640px phone cannot
+        * afford - it pushed the headline and both buttons off the first
+        * screen. The clamp keeps the desktop breathing room and takes it
+        * back where there is none to spare. */}
+      <section
+        style={{ position: 'relative', textAlign: 'center', overflow: 'hidden' }}
+        className="cp-hero"
+      >
         <div className="cp-glow" />
         <div className="cp-section" style={{ position: 'relative' }}>
           <div

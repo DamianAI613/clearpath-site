@@ -621,6 +621,56 @@ export const PROJECTS: Project[] = [
     ],
     tech: ['Next.js', 'React', 'TypeScript', 'Supabase', 'PostgreSQL', 'Row-level security'],
   },
+  {
+    slug: 'voice-cloning-pipeline',
+    title: 'Local Voice Cloning Pipeline',
+    short: 'Voice Cloning',
+    category: 'Speech & audio AI',
+    group: 'ML & Data',
+    status: 'Demoed',
+    featured: false,
+    tagline: 'Narration in a real person\u2019s voice, generated entirely on a machine you control.',
+    summary:
+      'A pair of wrappers around OpenVoice that turn a sixty-second reference clip into an arbitrary-length narration in that voice. Two engines - one expressive, one clean - behind a single command-line tool and a local web UI, with nothing leaving the machine. Built to stop re-recording demo video narration every time a script changed.',
+    sections: [
+      {
+        heading: 'The problem it solves',
+        body:
+          'Every change to a demo script meant setting up again and re-recording the whole narration, and a tired take at eleven at night does not match a fresh one from the morning. Commercial voice services solve the re-recording problem but introduce a different one: the voice and the script both get uploaded to someone else\u2019s servers, under whatever terms that vendor happens to offer this quarter. For narration about client systems, that is a bad trade.',
+      },
+      {
+        heading: 'Two engines, one interface',
+        body:
+          'OpenVoice ships two generations that behave differently and are documented as separate demos. V1 speaks through an English base model with a selectable emotional style - friendly, cheerful, excited, sad, whispering, shouting - which gives livelier delivery at slightly lower audio fidelity. V2 uses MeloTTS accents, which are cleaner but flatter. Both then swap the tone colour onto the reference voice. This pipeline puts both behind one argument, so choosing between energy and fidelity is a flag rather than a different script and a different mental model.',
+      },
+      {
+        heading: 'Where the engineering went',
+        body:
+          'Naively wired up, every generation re-extracts the speaker embedding from the reference clip and reloads a multi-hundred-megabyte model - which makes iterating on a script painful. Models load once and the speaker embeddings are cached per reference and converter, so the second take and the twentieth cost only the synthesis. Checkpoints are verified before any model loads, so a missing file produces the path it wanted rather than a stack trace forty seconds in. The device is selected automatically, with CPU runs warning up front that they will be roughly ten times slower. The whole thing starts from a double-clicked batch file that activates the environment and opens the browser.',
+      },
+      {
+        heading: 'Provenance and consent',
+        body:
+          'Every generated file carries an inaudible watermark embedded by OpenVoice, so an output can be identified as synthetic after the fact. That matters: a cloned voice is a credential, and the useful version of this technology is one that can be told apart from a recording. The operating rule is that a voice gets cloned only with the consent of the person it belongs to. The reference clip here is my own, and the output has a specific job - narrating ClearPath demo videos without the re-recording tax.',
+      },
+      {
+        heading: 'Where it stands',
+        body:
+          'Built and working, with baseline clones generated on both engines and a test script written specifically to stress the things synthetic speech usually fails on: dollar figures, percentages, clock times and dates read aloud. Not yet the narration track on a shipped video, which is why it is marked demoed rather than in use. The same pipeline builds for anyone who owns the voice going into it - training libraries, product walkthroughs, IVR prompts - and runs on their hardware, not a vendor\u2019s.',
+      },
+    ],
+    highlights: [
+      'Sixty seconds of reference audio in, arbitrary-length narration out',
+      'Two engines behind one flag: nine expressive styles, or five cleaner accents',
+      'Runs fully offline - no voice data and no script leaves the machine',
+      'Cached speaker embeddings and single model load, so iterating on a take is cheap',
+      'Every output carries an inaudible watermark identifying it as synthetic',
+      'Built on OpenVoice (MIT licensed, cleared for commercial use)',
+    ],
+    tech: ['Python', 'PyTorch', 'OpenVoice', 'MeloTTS', 'Gradio', 'CUDA'],
+    note:
+      'Voices are cloned only with the consent of the person they belong to. The reference voice in this build is my own.',
+  },
 ]
 
 /* -- The enterprise clinical programme -------------------------------- *
@@ -775,7 +825,7 @@ export const STACK_GROUPS = [
       'Anthropic / Claude API', 'OpenAI API', 'Prompt engineering (certified)', 'Agentic workflows',
       'Retrieval-grounded assistants', 'Evaluation harnesses', 'XGBoost', 'LightGBM',
       'HistGradientBoosting', 'scikit-learn', 'Purged cross-validation', 'Leakage detection',
-      'Claude Code', 'Agent SDK',
+      'Claude Code', 'Agent SDK', 'Voice cloning', 'OpenVoice', 'MeloTTS', 'Text-to-speech',
     ],
   },
   {
@@ -786,7 +836,7 @@ export const STACK_GROUPS = [
     title: 'Frameworks & libraries',
     items: [
       'Next.js', 'React', 'React Native', 'Expo', 'Node.js', 'Flask', 'tkinter',
-      'pandas', 'NumPy', 'openpyxl', 'Tailwind CSS',
+      'pandas', 'NumPy', 'openpyxl', 'Tailwind CSS', 'PyTorch', 'Gradio',
     ],
   },
   {
